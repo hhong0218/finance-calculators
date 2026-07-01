@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paycheck Calculator — 2026 Take-Home Pay Estimator | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/paycheck-calculator">
+  <meta name="description" content="Free 2026 US paycheck calculator. Estimate take-home pay after federal income tax, Social Security, Medicare, and an optional state tax rate. Weekly, biweekly, monthly, or annual. Private, runs in your browser.">
+  <meta name="keywords" content="paycheck calculator, take home pay calculator, net pay calculator, salary calculator 2026, FICA calculator, federal tax withholding calculator">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Paycheck Calculator — 2026 Take-Home Pay Estimator">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Estimate your 2026 take-home pay after federal tax, FICA, and state tax. Free, private, based on current IRS brackets.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calc.quietools.com/paycheck-calculator">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--warn-bg:#fdf3e3;--warn-border:#e8c778;--warn-text:#7a5a12;
+      --shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--warn-bg:#2b2410;--warn-border:#6b551d;--warn-text:#e8c778;
+        --shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    h1{font-size:1.9rem;margin-bottom:.5rem;letter-spacing:-.02em}
+    .lead{color:var(--muted);margin-bottom:1rem}
+    .estimate-notice{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--warn-text);border-radius:10px;padding:.85rem 1.1rem;font-size:.88rem;margin-bottom:1.5rem;display:flex;gap:.6rem;align-items:flex-start}
+    .estimate-notice .ic{font-size:1.1rem;line-height:1.3}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start}
+    @media(max-width:820px){.layout{grid-template-columns:1fr}}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow)}
+    .panel h2{font-size:1.15rem;margin-bottom:1rem;letter-spacing:-.01em}
+    .freq-toggle{display:flex;gap:.4rem;margin-bottom:1.1rem;flex-wrap:wrap}
+    .freq-toggle button{flex:1;min-width:80px;background:var(--panel-2);border:1px solid var(--border-strong);color:var(--text);border-radius:8px;padding:.5rem;font-size:.85rem;font-weight:600;cursor:pointer}
+    .freq-toggle button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+    .field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+    .field .hint{font-size:.75rem;color:var(--muted);font-weight:400}
+    input[type=number],select{background:var(--panel);color:var(--text);border:1px solid var(--border-strong);border-radius:9px;padding:.6rem .7rem;font-size:.95rem;width:100%;font-family:inherit}
+    input[type=number]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    @media(max-width:480px){.row2{grid-template-columns:1fr}}
+    button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;border-radius:10px;padding:.75rem 1.4rem;font-size:.95rem;font-weight:700;cursor:pointer;transition:.15s;box-shadow:var(--shadow);width:100%;font-family:inherit}
+    button.primary:hover{filter:brightness(1.05)}
+    .status{margin:.75rem 0 0;font-size:.85rem;color:var(--err);min-height:1.2em}
+    .big-payment{text-align:center;padding:0 0 1.25rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+    .big-payment .amt{font-size:2.3rem;font-weight:800;color:var(--accent);letter-spacing:-.02em}
+    .big-payment .lbl{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+    .waterfall{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+    .waterfall .line{display:flex;justify-content:space-between;font-size:.92rem;padding:.35rem 0;border-bottom:1px dashed var(--border)}
+    .waterfall .line .k{color:var(--muted)}
+    .waterfall .line .v{font-weight:700;font-variant-numeric:tabular-nums}
+    .waterfall .line.deduct .v{color:var(--err)}
+    .waterfall .line.net{border-bottom:none;border-top:2px solid var(--border);padding-top:.6rem;margin-top:.2rem;font-size:1.05rem}
+    .waterfall .line.net .v{color:var(--ok)}
+    .annual-toggle{font-size:.8rem;color:var(--muted);margin-top:.5rem;text-align:right}
+    .annual-toggle a{font-weight:600}
+    .seo{margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.75rem}
+    .seo h2{font-size:1.25rem;margin:1.5rem 0 .5rem;letter-spacing:-.01em}
+    .seo h2:first-child{margin-top:0}
+    .seo p,.seo li{color:var(--muted);margin-bottom:.5rem}
+    .seo ul,.seo ol{margin:0 0 .5rem 1.25rem}
+    .seo strong{color:var(--text)}
+    .faq-q{font-weight:700;color:var(--text);margin-top:.75rem}
+    .bracket-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0}
+    .bracket-table th,.bracket-table td{border:1px solid var(--border);padding:.5rem .6rem;text-align:left}
+    .bracket-table th{background:var(--panel-2);font-weight:700}
+    .source-note{font-size:.78rem;color:var(--muted);margin-top:.5rem}
+    .disclaimer-box{margin-top:2rem;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/" style="font-weight:600;font-size:.92rem">All calculators</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › Paycheck Calculator</p>
+    <h1>Paycheck Calculator</h1>
+    <p class="lead">Estimate your take-home pay after 2026 federal income tax, Social Security, Medicare, and an optional state tax rate.</p>
+
+    <div class="estimate-notice">
+      <span class="ic">⚠️</span>
+      <span><strong>This is an estimate using simplified 2026 IRS figures</strong> — it is not your actual paycheck withholding. Real withholding also depends on your Form W-4 elections (multiple jobs, dependents, extra withholding), pre-tax benefits, and your specific state/local tax rules. See "How this is calculated" below for full details and sources.</span>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="layout">
+      <div class="panel">
+        <h2>Your Pay</h2>
+        <div class="freq-toggle" id="freqToggle">
+          <button type="button" data-freq="weekly">Weekly</button>
+          <button type="button" data-freq="biweekly" class="sel">Biweekly</button>
+          <button type="button" data-freq="monthly">Monthly</button>
+          <button type="button" data-freq="annual">Annual</button>
+        </div>
+        <div class="field">
+          <label for="gross" id="grossLabel">Gross pay per paycheck ($)</label>
+          <input type="number" id="gross" value="2500" min="0" step="10">
+        </div>
+        <div class="field">
+          <label for="filingStatus">Filing status</label>
+          <select id="filingStatus">
+            <option value="single" selected>Single</option>
+            <option value="marriedJointly">Married filing jointly</option>
+            <option value="headOfHousehold">Head of household</option>
+          </select>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="stateRate">State/local tax rate (%) <span class="hint">— you provide this</span></label>
+            <input type="number" id="stateRate" value="0" min="0" max="15" step="0.1">
+          </div>
+          <div class="field">
+            <label for="preTax">Pre-tax deductions <span class="hint">per paycheck (401k, HSA...)</span></label>
+            <input type="number" id="preTax" value="0" min="0" step="10">
+          </div>
+        </div>
+        <p class="hint" style="margin-bottom:1rem">Leave state rate at 0 if you live in a no-income-tax state (e.g. TX, FL, WA, NV, TN, SD, WY, AK, NH) or want a federal-only estimate. This is a flat percentage you supply — we do not calculate your specific state's bracket structure. See the note below.</p>
+        <button class="primary" onclick="calcPaycheck()">Calculate take-home pay</button>
+        <p class="status" id="status"></p>
+      </div>
+
+      <div class="panel" id="resultsPanel" style="display:none">
+        <div class="big-payment">
+          <div class="amt" id="netPay">$0</div>
+          <div class="lbl" id="netLabel">Estimated net pay per paycheck</div>
+        </div>
+        <div class="waterfall">
+          <div class="line"><span class="k">Gross pay</span><span class="v" id="lnGross">$0</span></div>
+          <div class="line deduct"><span class="k">Pre-tax deductions</span><span class="v" id="lnPreTax">-$0</span></div>
+          <div class="line deduct"><span class="k">Federal income tax</span><span class="v" id="lnFed">-$0</span></div>
+          <div class="line deduct"><span class="k">Social Security (6.2%)</span><span class="v" id="lnSS">-$0</span></div>
+          <div class="line deduct"><span class="k">Medicare (1.45%+)</span><span class="v" id="lnMed">-$0</span></div>
+          <div class="line deduct"><span class="k">State/local tax (your rate)</span><span class="v" id="lnState">-$0</span></div>
+          <div class="line net"><span class="k">Net (take-home) pay</span><span class="v" id="lnNet">$0</span></div>
+        </div>
+        <p class="annual-toggle">Annual gross: <strong id="annualGross">$0</strong> · Effective federal rate: <strong id="effRate">0%</strong> · Annual net: <strong id="annualNet">$0</strong></p>
+      </div>
+    </div>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <section class="seo">
+      <h2>How this is calculated</h2>
+      <p>This calculator estimates your <strong>effective annual federal tax</strong> by annualizing your gross pay, subtracting the 2026 standard deduction for your filing status, and applying the 2026 marginal tax brackets to the result — then dividing back down to your pay frequency. This is the standard simplified approach used by most consumer paycheck estimators. It is <strong>not</strong> the exact IRS Publication 15-T payroll withholding percentage-method table your employer actually uses, which additionally factors in your Form W-4 elections (filing status checkbox, the multiple-jobs worksheet, dependent credits, and any extra withholding you requested). Your real per-paycheck withholding can differ from this estimate for that reason — but your <em>total annual</em> federal tax liability, once you file your return, follows the same bracket math shown here.</p>
+
+      <h3>2026 federal tax brackets used</h3>
+      <table class="bracket-table">
+        <thead><tr><th>Rate</th><th>Single</th><th>Married Filing Jointly</th><th>Head of Household</th></tr></thead>
+        <tbody>
+          <tr><td>10%</td><td>$0 – $12,400</td><td>$0 – $24,800</td><td>$0 – $17,700</td></tr>
+          <tr><td>12%</td><td>$12,400 – $50,400</td><td>$24,800 – $100,800</td><td>$17,700 – $67,450</td></tr>
+          <tr><td>22%</td><td>$50,400 – $105,700</td><td>$100,800 – $211,400</td><td>$67,450 – $105,700</td></tr>
+          <tr><td>24%</td><td>$105,700 – $201,775</td><td>$211,400 – $403,550</td><td>$105,700 – $201,750</td></tr>
+          <tr><td>32%</td><td>$201,775 – $256,225</td><td>$403,550 – $512,450</td><td>$201,750 – $256,200</td></tr>
+          <tr><td>35%</td><td>$256,225 – $640,600</td><td>$512,450 – $768,700</td><td>$256,200 – $640,600</td></tr>
+          <tr><td>37%</td><td>over $640,600</td><td>over $768,700</td><td>over $640,600</td></tr>
+        </tbody>
+      </table>
+      <p><strong>2026 standard deduction:</strong> Single / Married Filing Separately: $16,100 · Married Filing Jointly: $32,200 · Head of Household: $24,150.</p>
+      <p class="source-note">Source: IRS Revenue Procedure 2025-32, announced in "IRS releases tax inflation adjustments for tax year 2026" (IR-2025-103), published October 9, 2025 — <a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill" rel="noopener" target="_blank">irs.gov</a>. These are tax year 2026 figures (returns filed in 2027).</p>
+
+      <h3>FICA (Social Security &amp; Medicare) rates used</h3>
+      <ul>
+        <li><strong>Social Security:</strong> 6.2%, applied to wages up to the 2026 wage base limit of <strong>$184,500</strong>. Wages above that are not subject to Social Security tax.</li>
+        <li><strong>Medicare:</strong> 1.45% on all wages, with no wage cap.</li>
+        <li><strong>Additional Medicare Tax:</strong> an extra 0.9% on wages above $200,000 (single/head of household) or $250,000 (married filing jointly).</li>
+      </ul>
+      <p class="source-note">Source: Social Security Administration 2026 COLA Fact Sheet — <a href="https://www.ssa.gov/news/en/cola/factsheets/2026.html" rel="noopener" target="_blank">ssa.gov</a> ($184,500 wage base for 2026); IRS Topic no. 751, Social Security and Medicare withholding rates — <a href="https://www.irs.gov/taxtopics/tc751" rel="noopener" target="_blank">irs.gov</a>.</p>
+
+      <h3>Why state tax is a simple flat-rate input, not a full calculation</h3>
+      <p>Every US state (and many cities) has its own income tax rules — nine states have no wage income tax at all (Texas, Florida, Washington, Nevada, Tennessee, South Dakota, Wyoming, Alaska, and New Hampshire, which taxes only certain investment income), while the other 41+ have their own brackets, standard deductions, and credits that change independently of federal rules and often change every year. Modeling all 50 states accurately in one pass would be a substantial undertaking on its own and a likely source of errors if done quickly. Instead, this calculator asks you to enter your own effective state/local tax rate as a flat percentage — you can find a reasonable estimate from your last pay stub, your state's department of revenue website, or a state-specific calculator, and enter it here for a fuller take-home-pay picture. Leave it at 0% for a federal-only estimate or if you're in a no-income-tax state.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Why doesn't this match my actual paycheck exactly?</p>
+      <p>Real payroll withholding uses IRS Publication 15-T's percentage-method tables, which are driven by your Form W-4 — including whether you checked the "multiple jobs" box, claimed dependents, or requested extra withholding. This calculator uses a simplified annualized-bracket approach that closely approximates a single-job, standard-deduction taxpayer's effective tax, but it will not match your pay stub to the penny. It's a planning estimate, not a substitute for your actual pay stub or W-4.</p>
+      <p class="faq-q">What tax year is this based on?</p>
+      <p>Tax year 2026 — the brackets and standard deduction that apply to income earned during 2026 (the return for which is filed in 2027), per IRS Revenue Procedure 2025-32.</p>
+      <p class="faq-q">Does this include local city/county income tax?</p>
+      <p>Not automatically. If your city or county has its own income tax (for example, some Ohio and Pennsylvania municipalities, or New York City), fold that rate into the "state/local tax rate" field yourself for a fuller estimate.</p>
+      <p class="faq-q">Is my salary information uploaded anywhere?</p>
+      <p>No. Every calculation happens locally in your browser using JavaScript. Your pay, filing status, and other figures are never sent to a server.</p>
+    </section>
+
+    <div class="disclaimer-box">
+      <strong>Not tax advice.</strong> This calculator provides a simplified estimate for general informational purposes only, using published 2026 IRS federal tax brackets, standard deductions, and FICA rates (cited above). It does not replicate your employer's exact Form W-4-based withholding calculation, and the state/local tax figure is a flat rate you provide yourself, not a calculated result. Consult a tax professional or use the IRS Tax Withholding Estimator for guidance specific to your situation.
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Why doesn't this match my actual paycheck exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Real payroll withholding uses IRS Publication 15-T percentage-method tables driven by your Form W-4. This calculator uses a simplified annualized-bracket approach that approximates a single-job, standard-deduction taxpayer's effective tax, but will not match your pay stub exactly."}},
+      {"@type": "Question", "name": "What tax year is this based on?", "acceptedAnswer": {"@type": "Answer", "text": "Tax year 2026, per IRS Revenue Procedure 2025-32, announced October 9, 2025."}},
+      {"@type": "Question", "name": "Does this include local city or county income tax?", "acceptedAnswer": {"@type": "Answer", "text": "Not automatically. If your city or county has its own income tax, fold that rate into the state/local tax rate field yourself for a fuller estimate."}},
+      {"@type": "Question", "name": "Is my salary information uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every calculation happens locally in your browser using JavaScript. Your pay, filing status, and other figures are never sent to a server."}}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+
+  <script src="/assets/finance-math.js"></script>
+  <script>
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+
+    let frequency = 'biweekly';
+    const freqLabels = {
+      weekly: 'Gross pay per week ($)',
+      biweekly: 'Gross pay per paycheck ($)',
+      monthly: 'Gross pay per month ($)',
+      annual: 'Gross annual salary ($)'
+    };
+    const netLabels = {
+      weekly: 'Estimated net pay per week',
+      biweekly: 'Estimated net pay per paycheck',
+      monthly: 'Estimated net pay per month',
+      annual: 'Estimated net pay per year'
+    };
+
+    $('freqToggle').addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      frequency = btn.dataset.freq;
+      [...$('freqToggle').children].forEach(b => b.classList.toggle('sel', b === btn));
+      $('grossLabel').textContent = freqLabels[frequency];
+    });
+
+    function calcPaycheck(){
+      const status = $('status');
+      const gross = parseFloat($('gross').value) || 0;
+      const filingStatus = $('filingStatus').value;
+      const stateRate = Math.max(0, parseFloat($('stateRate').value) || 0);
+      const preTax = Math.max(0, parseFloat($('preTax').value) || 0);
+
+      if(gross <= 0){ status.textContent = 'Please enter a gross pay amount greater than 0.'; return; }
+      if(preTax > gross){ status.textContent = 'Pre-tax deductions cannot exceed your gross pay.'; return; }
+      status.textContent = '';
+
+      const result = FinanceMath.paycheckBreakdown({
+        grossPerPeriod: gross,
+        frequency,
+        filingStatus,
+        stateLocalRatePct: stateRate,
+        preTaxDeductionsPerPeriod: preTax
+      });
+
+      $('netPay').textContent = FinanceMath.formatCurrency(result.perPeriod.net);
+      $('netLabel').textContent = netLabels[frequency];
+      $('lnGross').textContent = FinanceMath.formatCurrency(result.perPeriod.gross);
+      $('lnPreTax').textContent = '-' + FinanceMath.formatCurrency(result.perPeriod.preTaxDeductions);
+      $('lnFed').textContent = '-' + FinanceMath.formatCurrency(result.perPeriod.federalTax);
+      $('lnSS').textContent = '-' + FinanceMath.formatCurrency(result.perPeriod.socialSecurity);
+      $('lnMed').textContent = '-' + FinanceMath.formatCurrency(result.perPeriod.medicare);
+      $('lnState').textContent = '-' + FinanceMath.formatCurrency(result.perPeriod.stateLocal);
+      $('lnNet').textContent = FinanceMath.formatCurrency(result.perPeriod.net);
+
+      $('annualGross').textContent = FinanceMath.formatCurrency(result.annual.gross);
+      $('effRate').textContent = result.annual.effectiveFederalRate.toFixed(1) + '%';
+      $('annualNet').textContent = FinanceMath.formatCurrency(result.annual.net);
+
+      $('resultsPanel').style.display = 'block';
+
+      if (typeof gtag === 'function') { gtag('event', 'paycheck_calc', { frequency: frequency, filing_status: filingStatus }); }
+    }
+
+    calcPaycheck();
+  </script>
+</body>
+</html>

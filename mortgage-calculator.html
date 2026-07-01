@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Calculator — Monthly Payment, Amortization &amp; Payoff Date | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/mortgage-calculator">
+  <meta name="description" content="Free mortgage calculator: monthly payment with principal, interest, property tax, home insurance, PMI and HOA. See total interest, payoff date, and an amortization chart. Private, runs in your browser.">
+  <meta name="keywords" content="mortgage calculator, monthly mortgage payment, mortgage amortization, PITI calculator, home loan calculator, PMI calculator">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Mortgage Calculator — Monthly Payment &amp; Amortization">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Calculate your monthly mortgage payment including taxes, insurance, PMI and HOA. See total interest and a full amortization chart. Free and private.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calc.quietools.com/mortgage-calculator">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--interest:#c98a3a;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--interest:#e0a668;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    h1{font-size:1.9rem;margin-bottom:.5rem;letter-spacing:-.02em}
+    .lead{color:var(--muted);margin-bottom:1.5rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .layout{display:grid;grid-template-columns:1.1fr 1fr;gap:1.5rem;align-items:start}
+    @media(max-width:820px){.layout{grid-template-columns:1fr}}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow)}
+    .panel h2{font-size:1.15rem;margin-bottom:1rem;letter-spacing:-.01em}
+    .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+    .field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+    .field .hint{font-size:.75rem;color:var(--muted);font-weight:400}
+    input[type=number],input[type=text],select{background:var(--panel);color:var(--text);border:1px solid var(--border-strong);border-radius:9px;padding:.6rem .7rem;font-size:.95rem;width:100%;font-family:inherit}
+    input[type=number]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    @media(max-width:480px){.row2{grid-template-columns:1fr}}
+    .dp-toggle{display:flex;gap:.4rem;margin-bottom:.4rem}
+    .dp-toggle button{flex:1;background:var(--panel-2);border:1px solid var(--border-strong);color:var(--text);border-radius:7px;padding:.35rem;font-size:.78rem;font-weight:600;cursor:pointer}
+    .dp-toggle button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+    details.optional{margin:1rem 0;border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;background:var(--panel-2)}
+    details.optional summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--text)}
+    details.optional .row2{margin-top:.85rem}
+    .results{margin-top:0}
+    .big-payment{text-align:center;padding:1rem 0 1.25rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+    .big-payment .amt{font-size:2.3rem;font-weight:800;color:var(--accent);letter-spacing:-.02em}
+    .big-payment .lbl{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+    .breakdown{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+    .breakdown .line{display:flex;justify-content:space-between;font-size:.92rem;padding:.3rem 0}
+    .breakdown .line .k{color:var(--muted)}
+    .breakdown .line .v{font-weight:700;font-variant-numeric:tabular-nums}
+    .breakdown .line.total{border-top:1px solid var(--border);padding-top:.6rem;margin-top:.2rem;font-size:1rem}
+    .swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.4rem}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:1.25rem}
+    .stat{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:.85rem}
+    .stat .k{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+    .stat .v{font-size:1.15rem;font-weight:700;margin-top:.2rem}
+    canvas{width:100%;height:220px;display:block;border-radius:10px;background:var(--panel-2);border:1px solid var(--border)}
+    .chart-legend{display:flex;gap:1.25rem;justify-content:center;margin-top:.6rem;font-size:.8rem;color:var(--muted)}
+    button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;border-radius:10px;padding:.75rem 1.4rem;font-size:.95rem;font-weight:700;cursor:pointer;transition:.15s;box-shadow:var(--shadow);width:100%;font-family:inherit}
+    button.primary:hover{filter:brightness(1.05)}
+    .status{margin:.75rem 0 0;font-size:.85rem;color:var(--err);min-height:1.2em}
+    .seo{margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.75rem}
+    .seo h2{font-size:1.25rem;margin:1.5rem 0 .5rem;letter-spacing:-.01em}
+    .seo h2:first-child{margin-top:0}
+    .seo p,.seo li{color:var(--muted);margin-bottom:.5rem}
+    .seo ul{margin:0 0 .5rem 1.25rem}
+    .seo code{background:var(--panel-2);border:1px solid var(--border);border-radius:5px;padding:.1rem .4rem;font-family:'SFMono-Regular',Consolas,monospace;font-size:.85em;color:var(--text)}
+    .seo strong{color:var(--text)}
+    .faq-q{font-weight:700;color:var(--text);margin-top:.75rem}
+    .disclaimer-box{margin-top:2rem;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/" style="font-weight:600;font-size:.92rem">All calculators</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › Mortgage Calculator</p>
+    <h1>Mortgage Calculator</h1>
+    <p class="lead">Estimate your monthly mortgage payment, including principal, interest, property tax, home insurance, PMI, and HOA. See total interest paid and your estimated payoff date.</p>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="layout">
+      <div class="panel">
+        <h2>Loan Details</h2>
+        <div class="field">
+          <label for="homePrice">Home price ($)</label>
+          <input type="number" id="homePrice" value="400000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label>Down payment</label>
+          <div class="dp-toggle">
+            <button type="button" id="dpModeAmt" class="sel" onclick="setDpMode('amount')">Dollar amount</button>
+            <button type="button" id="dpModePct" onclick="setDpMode('percent')">Percent</button>
+          </div>
+          <input type="number" id="downPayment" value="80000" min="0" step="1000">
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="rate">Interest rate (% APR)</label>
+            <input type="number" id="rate" value="6.5" min="0" max="30" step="0.01">
+          </div>
+          <div class="field">
+            <label for="term">Loan term (years)</label>
+            <select id="term">
+              <option value="30" selected>30 years</option>
+              <option value="20">20 years</option>
+              <option value="15">15 years</option>
+              <option value="10">10 years</option>
+            </select>
+          </div>
+        </div>
+
+        <details class="optional" open>
+          <summary>Taxes, insurance &amp; fees (optional)</summary>
+          <div class="row2">
+            <div class="field">
+              <label for="propTax">Property tax <span class="hint">(per year)</span></label>
+              <input type="number" id="propTax" value="4800" min="0" step="50">
+            </div>
+            <div class="field">
+              <label for="homeIns">Home insurance <span class="hint">(per year)</span></label>
+              <input type="number" id="homeIns" value="1500" min="0" step="50">
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label for="pmi">PMI <span class="hint">(per month)</span></label>
+              <input type="number" id="pmi" value="0" min="0" step="5">
+            </div>
+            <div class="field">
+              <label for="hoa">HOA <span class="hint">(per month)</span></label>
+              <input type="number" id="hoa" value="0" min="0" step="5">
+            </div>
+          </div>
+          <p class="hint" style="margin-top:.25rem">PMI (private mortgage insurance) is typically required when your down payment is below 20%. This calculator does not estimate a PMI rate for you — enter your lender's quoted amount, or leave at 0 if not applicable.</p>
+        </details>
+
+        <button class="primary" onclick="calcMortgage()">Calculate payment</button>
+        <p class="status" id="status"></p>
+      </div>
+
+      <div class="panel results" id="resultsPanel" style="display:none">
+        <div class="big-payment">
+          <div class="amt" id="totalMonthly">$0</div>
+          <div class="lbl">Estimated total monthly payment</div>
+        </div>
+        <div class="breakdown">
+          <div class="line"><span class="k"><span class="swatch" style="background:var(--accent)"></span>Principal &amp; interest</span><span class="v" id="lnPI">$0</span></div>
+          <div class="line"><span class="k"><span class="swatch" style="background:var(--interest)"></span>Property tax</span><span class="v" id="lnTax">$0</span></div>
+          <div class="line"><span class="k"><span class="swatch" style="background:#7c9fc9"></span>Home insurance</span><span class="v" id="lnIns">$0</span></div>
+          <div class="line"><span class="k"><span class="swatch" style="background:#c97c9f"></span>PMI</span><span class="v" id="lnPmi">$0</span></div>
+          <div class="line"><span class="k"><span class="swatch" style="background:#9f9f9f"></span>HOA</span><span class="v" id="lnHoa">$0</span></div>
+          <div class="line total"><span class="k">Total monthly payment</span><span class="v" id="lnTotal">$0</span></div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><div class="k">Loan amount</div><div class="v" id="statPrincipal">$0</div></div>
+          <div class="stat"><div class="k">Down payment</div><div class="v" id="statDp">$0 (0%)</div></div>
+          <div class="stat"><div class="k">Total interest paid</div><div class="v" id="statInterest">$0</div></div>
+          <div class="stat"><div class="k">Payoff date</div><div class="v" id="statPayoff">—</div></div>
+        </div>
+        <canvas id="chart" width="800" height="220" aria-label="Amortization chart showing principal and interest balance over time" role="img"></canvas>
+        <div class="chart-legend">
+          <span><span class="swatch" style="background:var(--accent)"></span>Remaining balance</span>
+          <span><span class="swatch" style="background:var(--interest)"></span>Cumulative interest paid</span>
+        </div>
+        <p style="margin-top:1rem"><a href="/amortization-schedule">View the full payment-by-payment amortization schedule →</a></p>
+      </div>
+    </div>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <section class="seo">
+      <h2>How the mortgage payment is calculated</h2>
+      <p>The principal &amp; interest portion of your payment uses the standard fixed-rate amortization formula:</p>
+      <p><code>M = P × [ r(1+r)<sup>n</sup> ] / [ (1+r)<sup>n</sup> − 1 ]</code></p>
+      <p>Where <strong>P</strong> is your loan principal (home price minus down payment), <strong>r</strong> is your monthly interest rate (annual rate ÷ 12), and <strong>n</strong> is the total number of monthly payments (loan term in years × 12). This produces a fixed payment that fully amortizes the loan — early payments are mostly interest, and later payments are mostly principal, even though the total payment stays the same every month.</p>
+      <p>Your <strong>total monthly payment</strong> (often called PITI) adds property tax and home insurance (converted from annual to monthly), plus PMI and HOA dues if you entered them.</p>
+
+      <h2>What is PMI and when do I need it?</h2>
+      <p>Private Mortgage Insurance (PMI) is typically required by lenders when your down payment is less than 20% of the home price, to protect the lender if you default. PMI rates vary by lender, credit score, and loan type, so this calculator asks you to enter your lender's quoted monthly PMI amount rather than guessing a rate. PMI is usually removed once you reach 20-22% equity.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Is this calculator accurate?</p>
+      <p>The principal &amp; interest math uses the exact standard amortization formula used across the mortgage industry, so for a given rate, term, and loan amount, the payment shown will match what any accurate mortgage calculator or lender would quote. What it can't know is your specific lender's fees, exact PMI rate, or final underwritten rate — those come from your Loan Estimate.</p>
+      <p class="faq-q">Does this include closing costs?</p>
+      <p>No. This calculator estimates the recurring monthly payment only. Closing costs (origination fees, title insurance, appraisal, etc.) are typically paid once at closing and aren't part of the monthly payment shown here.</p>
+      <p class="faq-q">Are my numbers uploaded anywhere?</p>
+      <p>No. Every calculation happens locally in your browser using JavaScript. Your home price, rate, and other figures are never sent to a server.</p>
+      <p class="faq-q">Why does the amortization chart show interest exceeding principal early on?</p>
+      <p>With a fixed monthly payment, the interest owed each month is calculated on the current remaining balance — which is highest at the start. So a larger share of your early payments goes to interest, and the principal share grows over time as the balance shrinks. This is normal and identical across all standard fixed-rate amortizing loans.</p>
+    </section>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This calculator provides an estimate for general informational purposes only, based on the inputs you provide and standard amortization formulas. It is not a loan offer, pre-approval, or substitute for a Loan Estimate from a lender. Actual payments depend on your lender's underwriting, exact PMI rate, closing costs, and local tax rates. Consult a mortgage lender or financial advisor for guidance specific to your situation.
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Is this mortgage calculator accurate?", "acceptedAnswer": {"@type": "Answer", "text": "The principal and interest math uses the exact standard amortization formula used across the mortgage industry, so for a given rate, term, and loan amount, the payment shown will match what any accurate mortgage calculator or lender would quote. It can't know your specific lender's fees or exact PMI rate."}},
+      {"@type": "Question", "name": "Does this include closing costs?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator estimates the recurring monthly payment only. Closing costs like origination fees, title insurance, and appraisal fees are typically paid once at closing and aren't part of the monthly payment shown here."}},
+      {"@type": "Question", "name": "Are my numbers uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every calculation happens locally in your browser using JavaScript. Your home price, rate, and other figures are never sent to a server."}},
+      {"@type": "Question", "name": "Why does the amortization chart show interest exceeding principal early on?", "acceptedAnswer": {"@type": "Answer", "text": "With a fixed monthly payment, the interest owed each month is calculated on the current remaining balance, which is highest at the start. A larger share of early payments goes to interest, and the principal share grows over time as the balance shrinks. This is normal for all standard fixed-rate amortizing loans."}}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+
+  <script src="/assets/finance-math.js"></script>
+  <script>
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+
+    let dpMode = 'amount'; // 'amount' | 'percent'
+    function setDpMode(mode){
+      dpMode = mode;
+      $('dpModeAmt').classList.toggle('sel', mode === 'amount');
+      $('dpModePct').classList.toggle('sel', mode === 'percent');
+      const homePrice = parseFloat($('homePrice').value) || 0;
+      const current = parseFloat($('downPayment').value) || 0;
+      if(mode === 'percent'){
+        // convert current dollar value shown to a percent
+        $('downPayment').value = homePrice > 0 ? FinanceMath.round2((current / homePrice) * 100) : 20;
+        $('downPayment').step = '0.5';
+        $('downPayment').max = '100';
+      } else {
+        $('downPayment').value = homePrice > 0 ? FinanceMath.round2(homePrice * (current / 100)) : 0;
+        $('downPayment').step = '1000';
+        $('downPayment').removeAttribute('max');
+      }
+    }
+
+    function getDownPaymentDollars(){
+      const homePrice = parseFloat($('homePrice').value) || 0;
+      const raw = parseFloat($('downPayment').value) || 0;
+      return dpMode === 'percent' ? homePrice * (raw / 100) : raw;
+    }
+
+    function drawChart(schedule){
+      const canvas = $('chart');
+      const dpr = window.devicePixelRatio || 1;
+      const cssWidth = canvas.clientWidth || 800;
+      const cssHeight = 220;
+      canvas.width = cssWidth * dpr;
+      canvas.height = cssHeight * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+      const styles = getComputedStyle(document.documentElement);
+      const accent = styles.getPropertyValue('--accent').trim() || '#1d6f5c';
+      const interestColor = styles.getPropertyValue('--interest').trim() || '#c98a3a';
+      const gridColor = styles.getPropertyValue('--border').trim() || '#dee7e4';
+      const textColor = styles.getPropertyValue('--muted').trim() || '#5c6f6a';
+
+      const padL = 55, padR = 15, padT = 15, padB = 28;
+      const plotW = cssWidth - padL - padR;
+      const plotH = cssHeight - padT - padB;
+
+      // sample yearly points (balance + cumulative interest) for a clean, light chart
+      const points = [];
+      let cumInterest = 0;
+      for(let i = 0; i < schedule.length; i++){
+        cumInterest += schedule[i].interestPaid;
+        if((i + 1) % 12 === 0 || i === schedule.length - 1){
+          points.push({ month: i + 1, balance: schedule[i].balance, cumInterest });
+        }
+      }
+      if(points.length === 0) return;
+
+      const maxVal = Math.max(...points.map(p => p.balance), ...points.map(p => p.cumInterest), 1);
+      const maxMonth = points[points.length - 1].month;
+
+      function xFor(month){ return padL + (month / maxMonth) * plotW; }
+      function yFor(val){ return padT + plotH - (val / maxVal) * plotH; }
+
+      // grid lines (4 horizontal)
+      ctx.strokeStyle = gridColor;
+      ctx.lineWidth = 1;
+      ctx.font = '10px -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif';
+      ctx.fillStyle = textColor;
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      for(let i = 0; i <= 4; i++){
+        const val = (maxVal / 4) * i;
+        const y = yFor(val);
+        ctx.beginPath();
+        ctx.moveTo(padL, y);
+        ctx.lineTo(cssWidth - padR, y);
+        ctx.stroke();
+        ctx.fillText('$' + Math.round(val / 1000) + 'k', padL - 8, y);
+      }
+
+      // x-axis year labels
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      const totalYears = Math.ceil(maxMonth / 12);
+      const yearStep = totalYears > 20 ? 5 : totalYears > 10 ? 2 : 1;
+      for(let yr = 0; yr <= totalYears; yr += yearStep){
+        const month = Math.min(yr * 12, maxMonth);
+        const x = xFor(month);
+        ctx.fillText('Yr ' + yr, x, cssHeight - padB + 6);
+      }
+
+      function drawLine(key, color){
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.5;
+        points.forEach((p, i) => {
+          const x = xFor(p.month), y = yFor(p[key]);
+          if(i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+      }
+      drawLine('balance', accent);
+      drawLine('cumInterest', interestColor);
+    }
+
+    function calcMortgage(){
+      const status = $('status');
+      const homePrice = parseFloat($('homePrice').value) || 0;
+      const downPayment = getDownPaymentDollars();
+      const rate = parseFloat($('rate').value) || 0;
+      const termYears = parseInt($('term').value, 10) || 30;
+      const propTax = parseFloat($('propTax').value) || 0;
+      const homeIns = parseFloat($('homeIns').value) || 0;
+      const pmi = parseFloat($('pmi').value) || 0;
+      const hoa = parseFloat($('hoa').value) || 0;
+
+      if(homePrice <= 0){ status.textContent = 'Please enter a home price greater than 0.'; return; }
+      if(downPayment >= homePrice){ status.textContent = 'Down payment must be less than the home price.'; return; }
+      if(rate < 0 || rate > 30){ status.textContent = 'Please enter a realistic interest rate (0-30%).'; return; }
+      status.textContent = '';
+
+      const mb = FinanceMath.mortgageBreakdown({
+        homePrice, downPayment, annualRatePct: rate, termYears,
+        annualPropertyTax: propTax, annualHomeInsurance: homeIns, pmiMonthly: pmi, hoaMonthly: hoa
+      });
+
+      $('totalMonthly').textContent = FinanceMath.formatCurrency(mb.totalMonthly);
+      $('lnPI').textContent = FinanceMath.formatCurrency(mb.monthlyPI);
+      $('lnTax').textContent = FinanceMath.formatCurrency(mb.propertyTaxMonthly);
+      $('lnIns').textContent = FinanceMath.formatCurrency(mb.insuranceMonthly);
+      $('lnPmi').textContent = FinanceMath.formatCurrency(mb.pmiMonthly);
+      $('lnHoa').textContent = FinanceMath.formatCurrency(mb.hoaMonthly);
+      $('lnTotal').textContent = FinanceMath.formatCurrency(mb.totalMonthly);
+
+      $('statPrincipal').textContent = FinanceMath.formatCurrency(mb.principal);
+      $('statDp').textContent = FinanceMath.formatCurrency(downPayment) + ' (' + mb.downPaymentPct.toFixed(1) + '%)';
+      $('statInterest').textContent = FinanceMath.formatCurrency(mb.totalInterest);
+      $('statPayoff').textContent = FinanceMath.formatDate(mb.payoffDate);
+
+      $('resultsPanel').style.display = 'block';
+      drawChart(mb.schedule);
+
+      if (typeof gtag === 'function') { gtag('event', 'mortgage_calc', { rate: rate, term_years: termYears }); }
+    }
+
+    window.addEventListener('resize', () => {
+      if($('resultsPanel').style.display !== 'none'){
+        calcMortgage();
+      }
+    });
+
+    // auto-run once on load with the sample defaults
+    calcMortgage();
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinCalc — Free Financial Calculators (Mortgage, Loan, Retirement, Paycheck)</title>
+  <link rel="canonical" href="https://calc.quietools.com/">
+  <meta name="description" content="Free financial calculators: mortgage payment, loan payoff, retirement savings, paycheck take-home pay, and amortization schedules. Private, no signup — everything runs in your browser.">
+  <meta name="keywords" content="mortgage calculator, loan calculator, retirement calculator, paycheck calculator, amortization schedule, financial calculators, take home pay calculator">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="FinCalc — Free Financial Calculators">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Mortgage, loan payoff, retirement, and paycheck calculators. Free, private, no signup — runs entirely in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calc.quietools.com/">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);display:flex;align-items:center;gap:.5rem;letter-spacing:-.01em;text-decoration:none}
+    .logo .mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem}
+    .logo span{color:var(--accent)}
+    .priv-pill{font-size:.72rem;font-weight:600;color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);border:1px solid color-mix(in srgb,var(--ok) 30%,transparent);padding:.25rem .6rem;border-radius:999px;white-space:nowrap}
+    main{max-width:1100px;margin:0 auto;padding:2.5rem 1.25rem}
+    .hero{text-align:center;margin-bottom:2rem}
+    .hero h1{font-size:2.2rem;margin-bottom:.75rem;letter-spacing:-.02em}
+    .hero p{color:var(--muted);font-size:1.1rem;max-width:640px;margin:0 auto}
+    .trust{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:1.1rem 0 .25rem}
+    .trust .chip{font-size:.8rem;color:var(--text);background:var(--panel);border:1px solid var(--border);border-radius:999px;padding:.4rem .8rem;box-shadow:var(--shadow);display:inline-flex;align-items:center;gap:.4rem}
+    .trust .chip b{color:var(--accent)}
+    .ad-slot{margin:2rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-decoration:none;transition:.15s;display:block;box-shadow:var(--shadow)}
+    .card:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .card .icon{font-size:1.6rem;margin-bottom:.5rem;color:var(--accent)}
+    .card h2{font-size:1.1rem;margin-bottom:.4rem;color:var(--text)}
+    .card p{color:var(--muted);font-size:.9rem}
+    .card .flag{display:inline-block;margin-top:.6rem;font-size:.72rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:.2rem .55rem}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.75rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+    .disclaimer{margin-top:1rem;font-size:.78rem;color:var(--muted);max-width:700px;margin-left:auto;margin-right:auto}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><span class="mark">$</span>Fin<span>Calc</span></a>
+    <nav style="display:flex;align-items:center;gap:1rem">
+      <a href="/about.html" style="font-weight:600;font-size:.92rem;color:var(--text)">About</a>
+      <span class="priv-pill">🔒 100% in your browser</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Free Financial Calculators</h1>
+      <p>Private, no-signup calculators for mortgages, loans, retirement savings, and take-home pay. Everything runs locally in your browser — your numbers never leave your device.</p>
+      <div class="trust">
+        <span class="chip">🔒 <b>Nothing uploaded</b> — your numbers stay on your device</span>
+        <span class="chip">⚡ <b>Instant</b> — results update as you type</span>
+        <span class="chip">🆓 <b>Free</b> — no signup, no limits</span>
+      </div>
+    </section>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <section class="grid">
+      <a class="card" href="/mortgage-calculator"><div class="icon">🏠</div><h2>Mortgage Calculator</h2><p>Monthly payment, taxes, insurance, PMI, HOA, and a full amortization chart.</p><span class="flag">Most popular</span></a>
+      <a class="card" href="/loan-payoff-calculator"><div class="icon">💳</div><h2>Loan Payoff Calculator</h2><p>Auto, personal, or student loans — see how much extra payments save you.</p></a>
+      <a class="card" href="/retirement-calculator"><div class="icon">📈</div><h2>Retirement Calculator</h2><p>Project your savings growth with contributions, returns, and employer match.</p></a>
+      <a class="card" href="/paycheck-calculator"><div class="icon">🧾</div><h2>Paycheck Calculator</h2><p>Estimate your take-home pay after 2026 federal tax, FICA, and state tax.</p></a>
+      <a class="card" href="/amortization-schedule"><div class="icon">📅</div><h2>Amortization Schedule</h2><p>Full payment-by-payment breakdown for any loan, with CSV export.</p></a>
+    </section>
+
+    <section class="faq" style="margin-top:3rem">
+      <h2 style="font-size:1.5rem;margin-bottom:1.25rem">Frequently Asked Questions</h2>
+      <div style="display:grid;gap:1rem">
+        <div class="card" style="cursor:default">
+          <h2 style="font-size:1.05rem">Is FinCalc free?</h2>
+          <p>Yes. Every calculator on FinCalc is completely free to use, with no usage limits, no trials, and no paywalls.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <h2 style="font-size:1.05rem">Do my numbers get sent anywhere?</h2>
+          <p>No. Every calculator runs entirely in your browser using client-side JavaScript. The figures you enter — income, loan amounts, savings — are processed on your own device and never uploaded to a server.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <h2 style="font-size:1.05rem">Do I need an account?</h2>
+          <p>No. There is no signup, no login, and no account of any kind. Open a calculator and start using it immediately.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <h2 style="font-size:1.05rem">Is this financial or tax advice?</h2>
+          <p>No. FinCalc provides estimates for general educational purposes only. Every calculator is built on standard, well-documented formulas, but your actual mortgage, loan, or paycheck depends on details a calculator can't know. Always consult a qualified financial advisor, tax professional, or your lender for decisions specific to your situation.</p>
+        </div>
+        <div class="card" style="cursor:default">
+          <h2 style="font-size:1.05rem">Which calculators are available?</h2>
+          <p>FinCalc includes a mortgage calculator, a general loan payoff calculator (auto/personal/student loans), a retirement savings projector, a US paycheck/take-home-pay calculator, and a standalone amortization schedule generator with CSV export.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Is FinCalc free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Every calculator on FinCalc is completely free to use, with no usage limits, no trials, and no paywalls."}},
+      {"@type": "Question", "name": "Do my numbers get sent anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every calculator runs entirely in your browser using client-side JavaScript. The figures you enter are processed on your own device and never uploaded to a server."}},
+      {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. There is no signup, no login, and no account of any kind. Open a calculator and start using it immediately."}},
+      {"@type": "Question", "name": "Is this financial or tax advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. FinCalc provides estimates for general educational purposes only. Every calculator is built on standard formulas, but your actual mortgage, loan, or paycheck depends on details a calculator can't know. Always consult a qualified financial advisor or tax professional for decisions specific to your situation."}},
+      {"@type": "Question", "name": "Which calculators are available?", "acceptedAnswer": {"@type": "Answer", "text": "FinCalc includes a mortgage calculator, a general loan payoff calculator, a retirement savings projector, a US paycheck calculator, and a standalone amortization schedule generator with CSV export."}}
+    ]
+  }
+  </script>
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <p class="disclaimer">FinCalc provides estimates for general informational purposes only and is not financial, tax, or legal advice. Consult a qualified professional for decisions specific to your situation.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

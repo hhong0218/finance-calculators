@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amortization Schedule Calculator — Full Payment Table + CSV Export | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/amortization-schedule">
+  <meta name="description" content="Generate a complete loan amortization schedule: every payment number, date, principal, interest, and remaining balance. Free, downloadable as CSV, runs entirely in your browser.">
+  <meta name="keywords" content="amortization schedule, loan amortization table, amortization calculator, printable amortization schedule, amortization schedule with dates, loan payment schedule">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Amortization Schedule Calculator — Full Payment Table">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Generate a full loan amortization schedule with every payment, date, principal, interest, and balance. Free, downloadable as CSV.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calc.quietools.com/amortization-schedule">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:1000px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    h1{font-size:1.9rem;margin-bottom:.5rem;letter-spacing:-.02em}
+    .lead{color:var(--muted);margin-bottom:1.5rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+    .panel h2{font-size:1.15rem;margin-bottom:1rem;letter-spacing:-.01em}
+    .row4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1rem}
+    @media(max-width:760px){.row4{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.row4{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+    .field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+    .field .hint{font-size:.75rem;color:var(--muted);font-weight:400}
+    input[type=number],input[type=date]{background:var(--panel);color:var(--text);border:1px solid var(--border-strong);border-radius:9px;padding:.6rem .7rem;font-size:.95rem;width:100%;font-family:inherit}
+    input[type=number]:focus,input[type=date]:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .actions{display:flex;gap:.75rem;flex-wrap:wrap;align-items:center}
+    button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;border-radius:10px;padding:.75rem 1.4rem;font-size:.95rem;font-weight:700;cursor:pointer;transition:.15s;box-shadow:var(--shadow);font-family:inherit}
+    button.primary:hover{filter:brightness(1.05)}
+    button.ghost{background:var(--panel-2);color:var(--text);border:1px solid var(--border-strong);border-radius:10px;padding:.75rem 1.2rem;font-size:.92rem;font-weight:600;cursor:pointer;font-family:inherit}
+    button.ghost:hover{border-color:var(--accent)}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .status{margin:.75rem 0 0;font-size:.85rem;color:var(--err);min-height:1.2em}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:1.25rem}
+    @media(max-width:700px){.stat-grid{grid-template-columns:1fr 1fr}}
+    .stat{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:.85rem}
+    .stat .k{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+    .stat .v{font-size:1.05rem;font-weight:700;margin-top:.2rem}
+    .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;max-height:520px;overflow-y:auto}
+    table.sched{width:100%;border-collapse:collapse;font-size:.85rem;font-variant-numeric:tabular-nums}
+    table.sched thead th{position:sticky;top:0;background:var(--panel-2);border-bottom:2px solid var(--border);padding:.6rem .7rem;text-align:right;font-weight:700;white-space:nowrap;z-index:2}
+    table.sched thead th:first-child,table.sched thead th:nth-child(2){text-align:left}
+    table.sched tbody td{padding:.5rem .7rem;text-align:right;border-bottom:1px solid var(--border);white-space:nowrap}
+    table.sched tbody td:first-child,table.sched tbody td:nth-child(2){text-align:left}
+    table.sched tbody tr:nth-child(even){background:color-mix(in srgb,var(--panel-2) 55%,transparent)}
+    table.sched tbody tr:hover{background:var(--accent-soft)}
+    .load-more{text-align:center;padding:.85rem;font-size:.85rem;color:var(--muted)}
+    .seo{margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.75rem}
+    .seo h2{font-size:1.25rem;margin:1.5rem 0 .5rem;letter-spacing:-.01em}
+    .seo h2:first-child{margin-top:0}
+    .seo p,.seo li{color:var(--muted);margin-bottom:.5rem}
+    .seo ul{margin:0 0 .5rem 1.25rem}
+    .seo code{background:var(--panel-2);border:1px solid var(--border);border-radius:5px;padding:.1rem .4rem;font-family:'SFMono-Regular',Consolas,monospace;font-size:.85em;color:var(--text)}
+    .seo strong{color:var(--text)}
+    .faq-q{font-weight:700;color:var(--text);margin-top:.75rem}
+    .disclaimer-box{margin-top:2rem;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/" style="font-weight:600;font-size:.92rem">All calculators</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › Amortization Schedule</p>
+    <h1>Amortization Schedule Calculator</h1>
+    <p class="lead">Generate the complete payment-by-payment schedule for any fixed-rate loan — mortgage, auto, personal, or student loan. See exactly how much of each payment goes to principal vs. interest, and download the full table as a CSV file.</p>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="panel">
+      <h2>Loan Details</h2>
+      <div class="row4">
+        <div class="field">
+          <label for="principal">Loan amount ($)</label>
+          <input type="number" id="principal" value="300000" min="0" step="1000">
+        </div>
+        <div class="field">
+          <label for="rate">Interest rate (% APR)</label>
+          <input type="number" id="rate" value="6.5" min="0" max="35" step="0.01">
+        </div>
+        <div class="field">
+          <label for="termYears">Term (years)</label>
+          <input type="number" id="termYears" value="30" min="0" step="1">
+        </div>
+        <div class="field">
+          <label for="startDate">First payment date</label>
+          <input type="date" id="startDate">
+        </div>
+      </div>
+      <div class="field" style="max-width:280px">
+        <label for="extra">Extra payment per month ($) <span class="hint">— optional</span></label>
+        <input type="number" id="extra" value="0" min="0" step="10">
+      </div>
+      <div class="actions">
+        <button class="primary" onclick="generateSchedule()">Generate schedule</button>
+        <button class="ghost" id="csvBtn" onclick="exportCSV()" disabled>⬇ Download CSV</button>
+      </div>
+      <p class="status" id="status"></p>
+    </div>
+
+    <div class="panel" id="resultsPanel" style="display:none">
+      <h2>Schedule Summary</h2>
+      <div class="stat-grid">
+        <div class="stat"><div class="k">Monthly payment (P&amp;I)</div><div class="v" id="statPayment">$0</div></div>
+        <div class="stat"><div class="k">Number of payments</div><div class="v" id="statCount">0</div></div>
+        <div class="stat"><div class="k">Total interest paid</div><div class="v" id="statInterest">$0</div></div>
+        <div class="stat"><div class="k">Payoff date</div><div class="v" id="statPayoff">—</div></div>
+      </div>
+      <div class="table-wrap">
+        <table class="sched" id="schedTable">
+          <thead>
+            <tr><th>#</th><th>Date</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr>
+          </thead>
+          <tbody id="schedBody"></tbody>
+        </table>
+      </div>
+      <div class="load-more" id="loadMoreWrap" style="display:none">
+        <button class="ghost" onclick="loadMoreRows()">Show more rows (<span id="remainingCount">0</span> remaining)</button>
+      </div>
+    </div>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <section class="seo">
+      <h2>What is an amortization schedule?</h2>
+      <p>An amortization schedule is a table that breaks down every single payment of a loan over its full term, showing exactly how much of that payment goes toward <strong>interest</strong> versus <strong>principal</strong>, and what the <strong>remaining balance</strong> is after each payment. For a fixed-rate loan, the total payment stays the same every period, but the split between principal and interest shifts over time: early payments are interest-heavy (because the balance — and the interest it accrues — is highest at the start), while later payments are principal-heavy.</p>
+
+      <h2>How the schedule is generated</h2>
+      <p>Each row is calculated using the standard amortization formula. First, the fixed monthly payment is found using <code>M = P × [ r(1+r)<sup>n</sup> ] / [ (1+r)<sup>n</sup> − 1 ]</code>, where P is the loan amount, r is the monthly interest rate, and n is the total number of payments. Then, for each payment: interest = current balance × monthly rate; principal = payment − interest; new balance = old balance − principal (plus any extra payment you specify, which comes entirely off principal).</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Can I use this for a mortgage, car loan, or student loan?</p>
+      <p>Yes — the amortization math is identical for any fixed-rate, fixed-term loan. For a mortgage specifically with taxes, insurance, and PMI included in the monthly payment, use the <a href="/mortgage-calculator">mortgage calculator</a> instead; this page focuses purely on the principal-and-interest schedule.</p>
+      <p class="faq-q">Can I download the full schedule?</p>
+      <p>Yes. Click "Download CSV" after generating a schedule to save the complete payment-by-payment table as a spreadsheet file you can open in Excel, Google Sheets, or Numbers.</p>
+      <p class="faq-q">What if I add extra payments?</p>
+      <p>Enter an "Extra payment per month" amount and the schedule will apply that extra amount directly to principal every period, shortening the loan and reducing total interest. To see a full side-by-side comparison of standard vs. extra-payment payoff, use the <a href="/loan-payoff-calculator">loan payoff calculator</a>.</p>
+      <p class="faq-q">Is my loan data uploaded anywhere?</p>
+      <p>No. The entire schedule is generated and displayed locally in your browser using JavaScript, and the CSV file is created and downloaded directly from your browser — nothing is sent to a server.</p>
+    </section>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This schedule is an estimate based on the exact loan amount, rate, and term you enter, using the standard fixed-rate amortization formula. It does not include lender fees, closing costs, taxes, insurance, or rate changes (for adjustable-rate loans). Confirm your actual schedule with your lender or loan servicer.
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Can I use this for a mortgage, car loan, or student loan?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the amortization math is identical for any fixed-rate, fixed-term loan. For a mortgage with taxes, insurance, and PMI included, use the dedicated mortgage calculator instead."}},
+      {"@type": "Question", "name": "Can I download the full schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Click Download CSV after generating a schedule to save the complete payment-by-payment table as a spreadsheet file."}},
+      {"@type": "Question", "name": "What if I add extra payments?", "acceptedAnswer": {"@type": "Answer", "text": "Enter an extra payment per month amount and the schedule applies that extra amount directly to principal every period, shortening the loan and reducing total interest."}},
+      {"@type": "Question", "name": "Is my loan data uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. The entire schedule is generated and displayed locally in your browser using JavaScript, and the CSV file is created and downloaded directly from your browser."}}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+
+  <script src="/assets/finance-math.js"></script>
+  <script>
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+
+    let fullSchedule = [];
+    let rowsShown = 0;
+    const ROWS_PER_PAGE = 120;
+
+    // default the date picker to the 1st of next month
+    (function initDate(){
+      const d = new Date(); d.setMonth(d.getMonth() + 1); d.setDate(1);
+      $('startDate').value = d.toISOString().slice(0, 10);
+    })();
+
+    function renderRows(){
+      const tbody = $('schedBody');
+      const nextBatch = fullSchedule.slice(rowsShown, rowsShown + ROWS_PER_PAGE);
+      const frag = document.createDocumentFragment();
+      nextBatch.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.n}</td><td>${FinanceMath.formatDate(row.date)}</td><td>${FinanceMath.formatCurrency(row.payment)}</td><td>${FinanceMath.formatCurrency(row.principalPaid)}</td><td>${FinanceMath.formatCurrency(row.interestPaid)}</td><td>${FinanceMath.formatCurrency(row.balance)}</td>`;
+        frag.appendChild(tr);
+      });
+      tbody.appendChild(frag);
+      rowsShown += nextBatch.length;
+      const remaining = fullSchedule.length - rowsShown;
+      $('remainingCount').textContent = remaining;
+      $('loadMoreWrap').style.display = remaining > 0 ? 'block' : 'none';
+    }
+
+    function loadMoreRows(){ renderRows(); }
+
+    function generateSchedule(){
+      const status = $('status');
+      const principal = parseFloat($('principal').value) || 0;
+      const rate = parseFloat($('rate').value) || 0;
+      const termYears = parseFloat($('termYears').value) || 0;
+      const extra = Math.max(0, parseFloat($('extra').value) || 0);
+      const startDateVal = $('startDate').value;
+
+      if(principal <= 0){ status.textContent = 'Please enter a loan amount greater than 0.'; return; }
+      if(termYears <= 0){ status.textContent = 'Please enter a term greater than 0 years.'; return; }
+      if(rate < 0 || rate > 35){ status.textContent = 'Please enter a realistic interest rate (0-35%).'; return; }
+      status.textContent = '';
+
+      const termMonths = Math.round(termYears * 12);
+      const startDate = startDateVal ? new Date(startDateVal + 'T00:00:00') : new Date();
+
+      const { schedule, summary } = FinanceMath.buildAmortizationSchedule({
+        principal, annualRatePct: rate, termMonths, extraMonthly: extra, startDate
+      });
+
+      fullSchedule = schedule;
+      rowsShown = 0;
+      $('schedBody').innerHTML = '';
+
+      $('statPayment').textContent = FinanceMath.formatCurrency(summary.monthlyPI);
+      $('statCount').textContent = summary.totalPayments;
+      $('statInterest').textContent = FinanceMath.formatCurrency(summary.totalInterest);
+      $('statPayoff').textContent = FinanceMath.formatDate(summary.payoffDate);
+
+      renderRows();
+      $('resultsPanel').style.display = 'block';
+      $('csvBtn').disabled = false;
+
+      if (typeof gtag === 'function') { gtag('event', 'amortization_calc', { rate: rate, term_years: termYears, extra_payment: extra }); }
+    }
+
+    function exportCSV(){
+      if(!fullSchedule.length) return;
+      const rows = fullSchedule.map(r => [r.n, FinanceMath.formatDate(r.date), r.payment.toFixed(2), r.principalPaid.toFixed(2), r.interestPaid.toFixed(2), r.balance.toFixed(2)]);
+      FinanceMath.downloadCSV('amortization-schedule.csv', rows, ['Payment #', 'Date', 'Payment', 'Principal', 'Interest', 'Balance']);
+    }
+
+    generateSchedule();
+  </script>
+</body>
+</html>

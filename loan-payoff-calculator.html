@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Payoff Calculator — See How Extra Payments Save You Money | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/loan-payoff-calculator">
+  <meta name="description" content="Free loan payoff calculator for auto, personal, and student loans. Compare your standard payoff to paying extra each month — see the time and interest you'd save. Private, runs in your browser.">
+  <meta name="keywords" content="loan payoff calculator, extra payment calculator, pay off loan faster, auto loan calculator, personal loan calculator, student loan payoff">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Loan Payoff Calculator — Standard vs. Extra Payments">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="See exactly how much time and interest extra payments save on an auto, personal, or student loan. Free, private side-by-side comparison.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calc.quietools.com/loan-payoff-calculator">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:960px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    h1{font-size:1.9rem;margin-bottom:.5rem;letter-spacing:-.02em}
+    .lead{color:var(--muted);margin-bottom:1.5rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .panel{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
+    .panel h2{font-size:1.15rem;margin-bottom:1rem;letter-spacing:-.01em}
+    .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @media(max-width:700px){.row3{grid-template-columns:1fr 1fr}}
+    @media(max-width:480px){.row3{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1rem}
+    .field label{font-size:.82rem;font-weight:600;color:var(--muted)}
+    .field .hint{font-size:.75rem;color:var(--muted);font-weight:400}
+    input[type=number],select{background:var(--panel);color:var(--text);border:1px solid var(--border-strong);border-radius:9px;padding:.6rem .7rem;font-size:.95rem;width:100%;font-family:inherit}
+    input[type=number]:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .loan-type{display:flex;gap:.4rem;margin-bottom:1.25rem;flex-wrap:wrap}
+    .loan-type button{background:var(--panel-2);border:1px solid var(--border-strong);color:var(--text);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:600;cursor:pointer}
+    .loan-type button.sel{background:var(--accent);color:#fff;border-color:var(--accent)}
+    button.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;border-radius:10px;padding:.75rem 1.4rem;font-size:.95rem;font-weight:700;cursor:pointer;transition:.15s;box-shadow:var(--shadow);font-family:inherit}
+    button.primary:hover{filter:brightness(1.05)}
+    .status{margin:.75rem 0 0;font-size:.85rem;color:var(--err);min-height:1.2em}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    @media(max-width:640px){.compare{grid-template-columns:1fr}}
+    .compare .col{border-radius:12px;padding:1.25rem;border:1px solid var(--border)}
+    .compare .col.std{background:var(--panel-2)}
+    .compare .col.extra{background:var(--accent-soft);border-color:var(--accent)}
+    .compare .col h3{font-size:.95rem;margin-bottom:.9rem;display:flex;align-items:center;gap:.4rem}
+    .compare .col.extra h3{color:var(--accent)}
+    .compare .stat{margin-bottom:.75rem}
+    .compare .stat .k{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+    .compare .stat .v{font-size:1.25rem;font-weight:800;margin-top:.15rem}
+    .savings-banner{margin-top:1.25rem;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:12px;padding:1.1rem;font-size:1.05rem;font-weight:700}
+    .savings-banner .sub{font-size:.82rem;font-weight:500;opacity:.9;margin-top:.25rem}
+    .seo{margin-top:2.5rem;border-top:1px solid var(--border);padding-top:1.75rem}
+    .seo h2{font-size:1.25rem;margin:1.5rem 0 .5rem;letter-spacing:-.01em}
+    .seo h2:first-child{margin-top:0}
+    .seo p,.seo li{color:var(--muted);margin-bottom:.5rem}
+    .seo ul{margin:0 0 .5rem 1.25rem}
+    .seo strong{color:var(--text)}
+    .faq-q{font-weight:700;color:var(--text);margin-top:.75rem}
+    .disclaimer-box{margin-top:2rem;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/" style="font-weight:600;font-size:.92rem">All calculators</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › Loan Payoff Calculator</p>
+    <h1>Loan Payoff Calculator</h1>
+    <p class="lead">For auto, personal, or student loans. Enter your loan details, then add an optional extra monthly payment to see side-by-side how much time and interest you'd save.</p>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="panel">
+      <h2>Loan Details</h2>
+      <div class="loan-type" id="loanType">
+        <button type="button" class="sel" data-type="auto">🚗 Auto loan</button>
+        <button type="button" data-type="personal">💵 Personal loan</button>
+        <button type="button" data-type="student">🎓 Student loan</button>
+        <button type="button" data-type="other">📋 Other</button>
+      </div>
+      <div class="row3">
+        <div class="field">
+          <label for="principal">Loan balance ($)</label>
+          <input type="number" id="principal" value="25000" min="0" step="100">
+        </div>
+        <div class="field">
+          <label for="rate">Interest rate (% APR)</label>
+          <input type="number" id="rate" value="7.5" min="0" max="35" step="0.01">
+        </div>
+        <div class="field">
+          <label for="term">Remaining term (months)</label>
+          <input type="number" id="term" value="60" min="1" max="480" step="1">
+        </div>
+      </div>
+      <div class="field" style="max-width:280px">
+        <label for="extra">Extra payment per month ($) <span class="hint">— optional</span></label>
+        <input type="number" id="extra" value="100" min="0" step="10">
+      </div>
+      <button class="primary" onclick="calcLoan()">Compare payoff</button>
+      <p class="status" id="status"></p>
+    </div>
+
+    <div class="panel" id="resultsPanel" style="display:none">
+      <h2>Standard vs. With Extra Payments</h2>
+      <div class="compare">
+        <div class="col std">
+          <h3>📉 Standard payoff</h3>
+          <div class="stat"><div class="k">Monthly payment</div><div class="v" id="stdPayment">$0</div></div>
+          <div class="stat"><div class="k">Payoff time</div><div class="v" id="stdTime">0 months</div></div>
+          <div class="stat"><div class="k">Total interest paid</div><div class="v" id="stdInterest">$0</div></div>
+          <div class="stat"><div class="k">Payoff date</div><div class="v" id="stdDate">—</div></div>
+        </div>
+        <div class="col extra">
+          <h3>🚀 With extra payments</h3>
+          <div class="stat"><div class="k">Monthly payment</div><div class="v" id="extraPayment">$0</div></div>
+          <div class="stat"><div class="k">Payoff time</div><div class="v" id="extraTime">0 months</div></div>
+          <div class="stat"><div class="k">Total interest paid</div><div class="v" id="extraInterest">$0</div></div>
+          <div class="stat"><div class="k">Payoff date</div><div class="v" id="extraDate">—</div></div>
+        </div>
+      </div>
+      <div class="savings-banner" id="savingsBanner">
+        You'd pay this off <span id="monthsSaved">0</span> months sooner and save <span id="interestSaved">$0</span> in interest.
+        <div class="sub">Compared to making only the standard monthly payment.</div>
+      </div>
+      <p style="margin-top:1.25rem"><a href="/amortization-schedule">View the full amortization schedule for this loan →</a></p>
+    </div>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <section class="seo">
+      <h2>How extra payments save you money</h2>
+      <p>Every extra dollar you pay toward a loan goes straight to reducing your principal balance — it isn't split between principal and interest like your regular payment is. A smaller principal balance means less interest accrues the following month, which means more of your <em>next</em> regular payment also goes to principal. This compounding effect is why even modest extra payments (an extra $50-100/month) can shave years off a loan and save meaningful interest, especially early in the loan term when the balance — and therefore the interest accruing on it — is at its highest.</p>
+
+      <h2>Which loans is this calculator for?</h2>
+      <p>This is a general-purpose amortizing loan calculator, so it works for:</p>
+      <ul>
+        <li><strong>Auto loans</strong> — typically 3-7 year terms, fixed rate.</li>
+        <li><strong>Personal loans</strong> — typically 2-7 year terms, used for debt consolidation, home improvement, or other expenses.</li>
+        <li><strong>Student loans</strong> — federal and private student loans with a fixed rate amortize the same way (though federal loans have their own income-driven repayment options this calculator doesn't model — see the FAQ below).</li>
+      </ul>
+      <p>For a mortgage specifically — with property tax, insurance, and PMI — use the <a href="/mortgage-calculator">mortgage calculator</a> instead.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Will my lender automatically apply extra payments to principal?</p>
+      <p>Not always — this depends on your loan servicer. Many lenders apply extra amounts to your <em>next</em> scheduled payment by default rather than directly reducing principal, unless you specifically mark the extra amount as "additional principal payment." Always confirm with your loan servicer that extra payments are being applied the way you intend, or you won't see the payoff acceleration this calculator shows.</p>
+      <p class="faq-q">Are there prepayment penalties?</p>
+      <p>Some loans — particularly certain personal loans and a small number of auto loans — charge a prepayment penalty for paying off the loan early or making large extra payments. Check your loan agreement before making large extra payments. Most mortgages, federal student loans, and modern auto loans do not have prepayment penalties, but it varies.</p>
+      <p class="faq-q">Does this model income-driven student loan repayment?</p>
+      <p>No. Federal student loans have income-driven repayment (IDR) plans where your payment is based on income rather than a fixed amortization schedule, and some plans include forgiveness after a set number of years. This calculator assumes a standard fixed-rate, fixed-term amortizing loan — it does not model IDR plans, forgiveness programs, or interest subsidies. If you're on or considering an IDR plan, use your loan servicer's tools or the Department of Education's official calculators instead.</p>
+      <p class="faq-q">Is my loan information uploaded anywhere?</p>
+      <p>No. Every calculation happens locally in your browser using JavaScript. Your loan balance, rate, and payment amounts are never sent to a server.</p>
+    </section>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This calculator provides an estimate for general informational purposes only, based on a standard fixed-rate amortization schedule. It does not account for prepayment penalties, income-driven repayment plans, loan forgiveness programs, deferment/forbearance, or your specific lender's rules for applying extra payments. Consult your loan servicer or a financial advisor before making decisions based on these figures.
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Will my lender automatically apply extra payments to principal?", "acceptedAnswer": {"@type": "Answer", "text": "Not always. Many lenders apply extra amounts to your next scheduled payment by default rather than directly reducing principal, unless you specifically mark the extra amount as an additional principal payment. Always confirm with your loan servicer."}},
+      {"@type": "Question", "name": "Are there prepayment penalties?", "acceptedAnswer": {"@type": "Answer", "text": "Some loans, particularly certain personal loans and a small number of auto loans, charge a prepayment penalty. Check your loan agreement before making large extra payments. Most mortgages, federal student loans, and modern auto loans do not have prepayment penalties."}},
+      {"@type": "Question", "name": "Does this model income-driven student loan repayment?", "acceptedAnswer": {"@type": "Answer", "text": "No. This calculator assumes a standard fixed-rate, fixed-term amortizing loan and does not model income-driven repayment plans, forgiveness programs, or interest subsidies used by some federal student loans."}},
+      {"@type": "Question", "name": "Is my loan information uploaded anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. Every calculation happens locally in your browser using JavaScript. Your loan balance, rate, and payment amounts are never sent to a server."}}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+
+  <script src="/assets/finance-math.js"></script>
+  <script>
+    "use strict";
+    function $(id){ return document.getElementById(id); }
+
+    document.getElementById('loanType').addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if(!btn) return;
+      [...document.getElementById('loanType').children].forEach(b => b.classList.toggle('sel', b === btn));
+    });
+
+    function calcLoan(){
+      const status = $('status');
+      const principal = parseFloat($('principal').value) || 0;
+      const rate = parseFloat($('rate').value) || 0;
+      const termMonths = parseInt($('term').value, 10) || 0;
+      const extra = Math.max(0, parseFloat($('extra').value) || 0);
+
+      if(principal <= 0){ status.textContent = 'Please enter a loan balance greater than 0.'; return; }
+      if(termMonths <= 0){ status.textContent = 'Please enter a remaining term of at least 1 month.'; return; }
+      if(rate < 0 || rate > 35){ status.textContent = 'Please enter a realistic interest rate (0-35%).'; return; }
+      status.textContent = '';
+
+      const cmp = FinanceMath.compareStandardVsExtra({
+        principal, annualRatePct: rate, termMonths, extraMonthly: extra
+      });
+
+      $('stdPayment').textContent = FinanceMath.formatCurrency(cmp.standard.summary.monthlyPI);
+      $('stdTime').textContent = cmp.standard.summary.payoffMonths + ' months (' + (cmp.standard.summary.payoffMonths / 12).toFixed(1) + ' yrs)';
+      $('stdInterest').textContent = FinanceMath.formatCurrency(cmp.standard.summary.totalInterest);
+      $('stdDate').textContent = FinanceMath.formatDate(cmp.standard.summary.payoffDate);
+
+      $('extraPayment').textContent = FinanceMath.formatCurrency(cmp.standard.summary.monthlyPI + extra);
+      $('extraTime').textContent = cmp.withExtra.summary.payoffMonths + ' months (' + (cmp.withExtra.summary.payoffMonths / 12).toFixed(1) + ' yrs)';
+      $('extraInterest').textContent = FinanceMath.formatCurrency(cmp.withExtra.summary.totalInterest);
+      $('extraDate').textContent = FinanceMath.formatDate(cmp.withExtra.summary.payoffDate);
+
+      if(extra > 0){
+        $('monthsSaved').textContent = cmp.monthsSaved;
+        $('interestSaved').textContent = FinanceMath.formatCurrency(cmp.interestSaved);
+        $('savingsBanner').style.display = 'block';
+      } else {
+        $('savingsBanner').style.display = 'none';
+      }
+
+      $('resultsPanel').style.display = 'block';
+
+      if (typeof gtag === 'function') { gtag('event', 'loan_calc', { rate: rate, term_months: termMonths, extra_payment: extra }); }
+    }
+
+    calcLoan();
+  </script>
+</body>
+</html>
