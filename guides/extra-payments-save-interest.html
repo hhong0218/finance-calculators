@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Extra Payments Save Interest — Worked Example | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/extra-payments-save-interest.html">
+  <meta name="description" content="How a fixed extra monthly payment shortens a loan and cuts total interest, with a worked example computed directly from this site's amortization engine.">
+  <meta name="keywords" content="extra loan payments save interest, pay off loan faster, extra principal payment calculator, how much do extra payments save, biweekly payment interest savings">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="How Extra Payments Save Interest — Worked Example">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="A worked example showing exactly how a fixed extra monthly payment shortens a loan term and reduces total interest paid.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/extra-payments-save-interest.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .example-box table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.6rem}
+    .example-box th,.example-box td{border:1px solid var(--border);padding:.5rem .6rem;text-align:right}
+    .example-box th:first-child,.example-box td:first-child{text-align:left}
+    .example-box th{background:var(--panel-2);font-weight:700}
+    .savings-banner{margin-top:1rem;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:10px;padding:.9rem;font-size:.98rem;font-weight:700}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › Extra Payments Save Interest</p>
+    <h1>How Extra Payments Save Interest: A Worked Example</h1>
+    <p class="meta">Loan payoff guide · Worked example</p>
+    <p class="lead">Adding even a modest fixed amount to your regular loan payment every month has an outsized effect on both how long you're in debt and how much interest you pay overall. Here's exactly why, with real numbers.</p>
+
+    <div class="cta-box">
+      <p>See your own extra-payment savings</p>
+      <a href="/loan-payoff-calculator">Try the loan payoff calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>Why extra payments are so effective</h2>
+      <p>Your regular loan payment is split between interest (the cost of borrowing, calculated on your current balance) and principal (paying down what you actually owe). An <strong>extra</strong> payment beyond your required amount, by contrast, goes <em>entirely</em> to principal — none of it is "used up" on interest. That means every extra dollar immediately shrinks your balance, which in turn shrinks the interest charged on all your future payments. It's a compounding effect: a smaller balance now means a smaller interest charge next month, which means a slightly larger share of every future payment goes to principal too, even without you adding any more extra money.</p>
+
+      <div class="example-box">
+        <h3>Worked example: $25,000 loan, 7.5% APR, 60-month term</h3>
+        <p>This example uses the same default figures as this site's own <a href="/loan-payoff-calculator">loan payoff calculator</a>, so you can reproduce it yourself. Here's the standard payoff compared to adding a fixed $100/month extra payment:</p>
+        <table>
+          <thead><tr><th></th><th>Standard payoff</th><th>With $100/month extra</th></tr></thead>
+          <tbody>
+            <tr><td>Monthly payment</td><td>$500.95</td><td>$600.95</td></tr>
+            <tr><td>Payoff time</td><td>60 months</td><td>49 months</td></tr>
+            <tr><td>Total interest paid</td><td>$5,056.92</td><td>$4,043.31</td></tr>
+          </tbody>
+        </table>
+        <div class="savings-banner">Paying off 11 months sooner and saving $1,013.61 in interest — for $100/month extra.</div>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">Figures computed directly with this site's amortization engine (the same math powering the <a href="/loan-payoff-calculator">loan payoff calculator</a>).</p>
+      </div>
+
+      <p>Notice the shape of that result: roughly $4,900 of extra payments total ($100 × 49 months) produced just over $1,013 in interest savings <em>and</em> ended the loan 11 months early — meaning those last 11 months of "would-have-been" required payments (worth roughly $5,510 at $500.95/month) simply never had to happen at all. The combination of interest saved and payments avoided is what makes extra payments so effective compared to, say, just setting the same $100/month aside in a low-yield savings account.</p>
+
+      <h2>Timing matters — earlier extra payments save more</h2>
+      <p>Because interest is calculated on your current balance, an extra dollar of principal paid off in month 1 stops accruing interest for the loan's entire remaining term — while the same extra dollar paid in month 50 of a 60-month loan only avoids 10 months of interest accrual. This is the same mechanic explained in <a href="/guides/how-mortgage-amortization-works.html">how mortgage amortization works</a> and <a href="/guides/why-early-mortgage-payments-are-mostly-interest.html">why early payments are mostly interest</a>. Practically, this means consistent extra payments made throughout a loan (rather than one large lump sum near the end) generally produce more total interest savings for the same total extra dollars paid.</p>
+
+      <h2>A few things to confirm before relying on this</h2>
+      <ul>
+        <li><strong>Confirm your lender applies extra payments to principal.</strong> Not all loan servicers do this automatically — some apply extra amounts to your next scheduled payment instead unless you specifically designate the extra amount as "additional principal." Always verify this with your servicer; otherwise you won't see the acceleration shown here.</li>
+        <li><strong>Check for prepayment penalties.</strong> A minority of loans, particularly some personal loans, charge a fee for paying off early or making large extra payments. Review your loan agreement first.</li>
+        <li><strong>This assumes a standard fixed-rate, fixed-term amortizing loan.</strong> Loans with income-driven repayment (some federal student loans) or variable rates behave differently — see the FAQ on the <a href="/loan-payoff-calculator">loan payoff calculator</a> for details.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Is $100/month extra always going to save about $1,000 in interest?</p>
+      <p>No — the exact savings depend heavily on your loan's principal, rate, and remaining term. A larger loan balance, a higher interest rate, or a longer remaining term generally means a bigger dollar impact from the same extra payment amount. Use the <a href="/loan-payoff-calculator">loan payoff calculator</a> with your own numbers to see your specific savings.</p>
+      <p class="faq-q">Is it better to make one extra payment per year or spread it monthly?</p>
+      <p>Spreading the same total extra amount across monthly payments throughout the year generally saves slightly more interest than making one large annual lump-sum payment, because the balance-reducing effect starts sooner and compounds over more months. The difference is usually modest unless the extra amount is large.</p>
+      <p class="faq-q">Should I pay extra on my loan or invest the money instead?</p>
+      <p>This depends on your loan's interest rate compared to your realistic expected investment return, your risk tolerance, and other factors like an emergency fund and higher-priority debts. This guide only explains the mechanics of extra payments on a single loan — it isn't a recommendation to prioritize debt payoff over investing or vice versa. Consult a financial advisor for guidance on your overall situation.</p>
+      <p class="faq-q">Does this work the same way for mortgages as for other loans?</p>
+      <p>Yes — the underlying amortization math is identical for mortgages, auto loans, personal loans, and fixed-rate student loans. For a full payment-by-payment view including extra payments, use the <a href="/amortization-schedule">amortization schedule calculator</a>.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Model extra payments on your own loan</p>
+      <a href="/loan-payoff-calculator">Try the loan payoff calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This guide illustrates standard amortization mechanics using a specific worked example. It does not account for prepayment penalties, your specific lender's rules for applying extra payments, or whether paying extra is the right choice compared to your other financial priorities. Consult your loan servicer or a financial advisor for guidance specific to your situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/debt-avalanche-vs-snowball.html">Debt avalanche vs. debt snowball</a></li>
+        <li><a href="/guides/why-early-mortgage-payments-are-mostly-interest.html">Why early mortgage payments are mostly interest</a></li>
+        <li><a href="/guides/how-mortgage-amortization-works.html">How mortgage amortization works</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Extra Payments Save Interest: A Worked Example",
+    "description": "How a fixed extra monthly payment shortens a loan and cuts total interest, with a worked example computed directly from this site's amortization engine.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/extra-payments-save-interest.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Is $100 a month extra always going to save about $1,000 in interest?", "acceptedAnswer": {"@type": "Answer", "text": "No, the exact savings depend heavily on your loan's principal, rate, and remaining term. A larger balance, higher rate, or longer remaining term generally means a bigger dollar impact from the same extra payment."}},
+      {"@type": "Question", "name": "Is it better to make one extra payment per year or spread it monthly?", "acceptedAnswer": {"@type": "Answer", "text": "Spreading the same total extra amount across monthly payments generally saves slightly more interest than one large annual lump sum, because the balance-reducing effect starts sooner and compounds over more months."}},
+      {"@type": "Question", "name": "Does extra payment math work the same way for mortgages as for other loans?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the underlying amortization math is identical for mortgages, auto loans, personal loans, and fixed-rate student loans."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Extra Payments Save Interest", "item": "https://calc.quietools.com/guides/extra-payments-save-interest.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

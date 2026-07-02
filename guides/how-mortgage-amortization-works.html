@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Mortgage Amortization Works — Principal vs. Interest Explained | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/how-mortgage-amortization-works.html">
+  <meta name="description" content="How mortgage amortization actually works: why your payment stays the same but the principal/interest split changes every month, with a worked numeric example and the standard formula.">
+  <meta name="keywords" content="how does mortgage amortization work, mortgage amortization explained, principal vs interest mortgage, amortization formula, why is my mortgage mostly interest">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="How Mortgage Amortization Works — Principal vs. Interest Explained">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Why a fixed mortgage payment splits differently into principal and interest every month, with a worked example using the standard amortization formula.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/how-mortgage-amortization-works.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    article code{background:var(--panel-2);border:1px solid var(--border);border-radius:5px;padding:.1rem .4rem;font-family:'SFMono-Regular',Consolas,monospace;font-size:.85em;color:var(--text)}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .example-box table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.6rem}
+    .example-box th,.example-box td{border:1px solid var(--border);padding:.5rem .6rem;text-align:right}
+    .example-box th:first-child,.example-box td:first-child{text-align:left}
+    .example-box th{background:var(--panel-2);font-weight:700}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › How Mortgage Amortization Works</p>
+    <h1>How Mortgage Amortization Works</h1>
+    <p class="meta">Mortgage guide · Applies to any fixed-rate mortgage or loan</p>
+    <p class="lead">Your mortgage payment is the same dollar amount every month for the life of the loan — but the mix of principal and interest inside that payment changes constantly. Here's exactly why, with the math and a worked example.</p>
+
+    <div class="cta-box">
+      <p>Want to see your own numbers?</p>
+      <a href="/mortgage-calculator">Try the mortgage calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>The short answer</h2>
+      <p>"Amortization" just means paying off a debt gradually through regular, scheduled payments. A mortgage is <strong>amortized</strong> when each monthly payment is calculated so that, by the final payment, the loan balance hits exactly zero. What makes amortization confusing at first is that the payment amount is fixed, but the <em>split</em> between principal (paying down what you borrowed) and interest (the cost of borrowing it) shifts every single month — heavily toward interest at the start, and heavily toward principal near the end.</p>
+
+      <h2>Why the split changes even though the payment doesn't</h2>
+      <p>Interest is calculated fresh every month, and it's always based on one thing: <strong>your current remaining balance</strong>. Early in a 30-year mortgage, your balance is close to the full loan amount — so the interest charge that month is large. Whatever is left of your fixed payment after covering that interest goes to principal. Because the interest portion is large early on, the principal portion is small.</p>
+      <p>As you make payments, the balance shrinks a little each month. A slightly smaller balance means a slightly smaller interest charge next month, which means a slightly larger slice of your fixed payment goes to principal instead. That's the entire mechanism — it repeats, compounding in your favor, for every payment of the loan. There's no trick or penalty involved; it's simply how interest calculated on a shrinking balance behaves.</p>
+
+      <h2>The standard amortization formula</h2>
+      <p>Every fixed-rate loan — mortgage, auto, personal, or student loan — uses the same formula to find the fixed monthly payment:</p>
+      <p><code>M = P × [ r(1+r)<sup>n</sup> ] / [ (1+r)<sup>n</sup> − 1 ]</code></p>
+      <p>Where <strong>M</strong> is the monthly principal & interest payment, <strong>P</strong> is the loan principal, <strong>r</strong> is the monthly interest rate (annual rate ÷ 12), and <strong>n</strong> is the total number of payments (years × 12). Once you know M, each month's interest is simply <code>current balance × r</code>, and principal is <code>M − interest</code>. This is the exact formula this site's <a href="/mortgage-calculator">mortgage calculator</a> and <a href="/amortization-schedule">amortization schedule tool</a> use under the hood.</p>
+
+      <div class="example-box">
+        <h3>Worked example: $400,000 loan, 6.5% APR, 30 years</h3>
+        <p>Plugging in P = $400,000, an annual rate of 6.5% (so r = 0.065/12 ≈ 0.005417), and n = 360 payments, the fixed monthly principal & interest payment comes out to about <strong>$2,528</strong>. Here's how the first, a middle, and the final payment split differently, even though all three are the same $2,528:</p>
+        <table>
+          <thead><tr><th>Payment</th><th>Interest</th><th>Principal</th><th>Interest share</th></tr></thead>
+          <tbody>
+            <tr><td>Payment #1</td><td>$2,166.67</td><td>$361.61</td><td>≈ 86%</td></tr>
+            <tr><td>Payment #180 (year 15, halfway)</td><td>$1,577.27</td><td>$951.01</td><td>≈ 62%</td></tr>
+            <tr><td>Payment #360 (final)</td><td>$13.62</td><td>$2,514.65</td><td>≈ 0.5%</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">Figures computed directly with this site's amortization engine (the same math powering the <a href="/amortization-schedule">amortization schedule calculator</a>). Try your own loan amount, rate, and term to see every payment in the schedule.</p>
+      </div>
+
+      <h2>Why this matters for your financial decisions</h2>
+      <p>Understanding this mechanic explains a few things that otherwise feel counterintuitive:</p>
+      <ul>
+        <li><strong>Why your balance seems to barely move in the early years</strong> — because so little of each payment is going to principal at first. See the companion guide, <a href="/guides/why-early-mortgage-payments-are-mostly-interest.html">why early mortgage payments are mostly interest</a>, for a focused deep dive on this specific feeling.</li>
+        <li><strong>Why extra payments early in the loan save so much more interest</strong> than the same extra payment made later — an extra dollar of principal paid in year 1 stops accruing interest for the loan's <em>entire remaining term</em>, while the same dollar paid in year 25 only avoids a few years of interest. See <a href="/guides/extra-payments-save-interest.html">how extra payments save interest</a> for the math.</li>
+        <li><strong>Why refinancing resets the clock</strong> — a new loan starts its own amortization schedule from scratch, front-loaded with interest again, which is one reason to compare the total interest of a refinance carefully, not just the new monthly payment.</li>
+        <li><strong>Why paying down to 20% equity matters for PMI</strong> — if you put down less than 20%, your amortization schedule (plus any extra payments and home value changes) determines when you cross the equity threshold where private mortgage insurance can come off. See <a href="/guides/pmi-explained.html">PMI explained</a>.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Does a 15-year mortgage amortize differently than a 30-year one?</p>
+      <p>The mechanism is identical — interest is still calculated on the current balance every month — but because a 15-year loan pays down principal faster, less total interest accrues over the life of the loan and the "mostly interest" early period is shorter. See <a href="/guides/15-year-vs-30-year-mortgage.html">15-year vs. 30-year mortgage</a> for a full comparison.</p>
+      <p class="faq-q">Can I see my own loan's exact amortization schedule?</p>
+      <p>Yes — enter your loan amount, rate, and term into the <a href="/amortization-schedule">amortization schedule calculator</a> for a full payment-by-payment table, downloadable as a CSV.</p>
+      <p class="faq-q">Is amortization the same for adjustable-rate mortgages (ARMs)?</p>
+      <p>The core principal/interest mechanic is the same, but an ARM's rate — and therefore its monthly payment and amortization schedule — can change at scheduled adjustment points. This guide and this site's calculators assume a fixed rate for the full term, which is the simpler and more common case to model precisely.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Ready to run your own mortgage numbers?</p>
+      <a href="/mortgage-calculator">Try the mortgage calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This guide explains standard, industry-wide amortization mechanics for general informational purposes only. It is not a loan offer or a substitute for a Loan Estimate from a lender. Consult a mortgage lender or financial advisor for guidance specific to your situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/why-early-mortgage-payments-are-mostly-interest.html">Why early mortgage payments are mostly interest</a></li>
+        <li><a href="/guides/15-year-vs-30-year-mortgage.html">15-year vs. 30-year mortgage</a></li>
+        <li><a href="/guides/pmi-explained.html">PMI explained</a></li>
+        <li><a href="/guides/how-to-read-an-amortization-schedule.html">How to read an amortization schedule</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Mortgage Amortization Works",
+    "description": "How mortgage amortization works: why your payment stays the same but the principal/interest split changes every month, with a worked numeric example and the standard formula.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/how-mortgage-amortization-works.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Does a 15-year mortgage amortize differently than a 30-year one?", "acceptedAnswer": {"@type": "Answer", "text": "The mechanism is identical, but because a 15-year loan pays down principal faster, less total interest accrues over the life of the loan and the interest-heavy early period is shorter."}},
+      {"@type": "Question", "name": "Can I see my own loan's exact amortization schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, enter your loan amount, rate, and term into the amortization schedule calculator for a full payment-by-payment table, downloadable as a CSV."}},
+      {"@type": "Question", "name": "Is amortization the same for adjustable-rate mortgages (ARMs)?", "acceptedAnswer": {"@type": "Answer", "text": "The core principal and interest mechanic is the same, but an ARM's rate, monthly payment, and amortization schedule can change at scheduled adjustment points."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "How Mortgage Amortization Works", "item": "https://calc.quietools.com/guides/how-mortgage-amortization-works.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

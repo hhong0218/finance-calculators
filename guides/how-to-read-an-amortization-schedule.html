@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Read an Amortization Schedule — Column by Column | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/how-to-read-an-amortization-schedule.html">
+  <meta name="description" content="How to read an amortization schedule: what each column means (payment number, date, principal, interest, balance) and practical uses like finding your PMI removal date.">
+  <meta name="keywords" content="how to read amortization schedule, amortization schedule columns explained, amortization table meaning, find PMI removal date, remaining balance column">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="How to Read an Amortization Schedule — Column by Column">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="What every column of an amortization schedule means, and practical uses including finding the exact payment where you hit 20% home equity.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/how-to-read-an-amortization-schedule.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .bracket-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.75rem 0}
+    .bracket-table th,.bracket-table td{border:1px solid var(--border);padding:.5rem .6rem;text-align:left}
+    .bracket-table th{background:var(--panel-2);font-weight:700}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .example-box table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:.6rem}
+    .example-box th,.example-box td{border:1px solid var(--border);padding:.45rem .55rem;text-align:right}
+    .example-box th:first-child,.example-box td:first-child,.example-box th:nth-child(2),.example-box td:nth-child(2){text-align:left}
+    .example-box th{background:var(--panel-2);font-weight:700}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › How to Read an Amortization Schedule</p>
+    <h1>How to Read an Amortization Schedule</h1>
+    <p class="meta">Amortization guide · Column-by-column walkthrough</p>
+    <p class="lead">An amortization schedule can look like a wall of numbers at first glance. Once you know what each column represents, it becomes one of the most useful documents for understanding exactly where you stand on any loan.</p>
+
+    <div class="cta-box">
+      <p>Generate your own full schedule</p>
+      <a href="/amortization-schedule">Try the amortization schedule calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>The standard columns, explained</h2>
+      <table class="bracket-table">
+        <thead><tr><th>Column</th><th>What it means</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Payment #</strong></td><td>The sequential number of the payment, starting at 1. Payment 12 is the end of your first year; payment 360 is the final payment of a 30-year loan.</td></tr>
+          <tr><td><strong>Date</strong></td><td>The calendar date that payment is due, based on your loan's first payment date and monthly interval.</td></tr>
+          <tr><td><strong>Payment</strong></td><td>The total amount due that period — for a fixed-rate loan, this stays the same every month (unless you're adding extra payments, which increase the total amount paid that period).</td></tr>
+          <tr><td><strong>Principal</strong></td><td>The portion of that payment that reduces your actual loan balance.</td></tr>
+          <tr><td><strong>Interest</strong></td><td>The portion of that payment that's the cost of borrowing — calculated as your <em>current remaining balance</em> times your monthly interest rate.</td></tr>
+          <tr><td><strong>Balance</strong></td><td>What you still owe after that payment is applied. This starts at your original loan amount and decreases to exactly $0 at the final payment.</td></tr>
+        </tbody>
+      </table>
+      <p>The core relationship to remember: <code>Payment = Principal + Interest</code> for every single row, and each row's <code>Balance = previous row's Balance − that row's Principal</code> (minus any extra payment applied directly to principal, if you're using one).</p>
+
+      <div class="example-box">
+        <h3>Reading three sample rows</h3>
+        <p>Here are payments 1, 2, and 3 of a $300,000 loan at 6.5% APR over 30 years (the amortization schedule calculator's own default example):</p>
+        <table>
+          <thead><tr><th>#</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>$1,896.20</td><td>$271.20</td><td>$1,625.00</td><td>$299,728.80</td></tr>
+            <tr><td>2</td><td>$1,896.20</td><td>$272.67</td><td>$1,623.53</td><td>$299,456.12</td></tr>
+            <tr><td>3</td><td>$1,896.20</td><td>$274.15</td><td>$1,622.05</td><td>$299,181.97</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">Notice the Payment column never changes, but Principal grows slightly and Interest shrinks slightly with every row — because Interest is recalculated on the shrinking Balance each time. See <a href="/guides/how-mortgage-amortization-works.html">how mortgage amortization works</a> for the full mechanism.</p>
+      </div>
+
+      <h2>Practical uses of a full schedule</h2>
+      <ul>
+        <li><strong>Finding your PMI removal date.</strong> If you put down less than 20% on a conventional mortgage, scan the <strong>Balance</strong> column for the payment number where your balance first drops to 78% (automatic PMI termination) or 80% (borrower-requested cancellation) of your original home value. That payment number tells you roughly when PMI can come off — see <a href="/guides/pmi-explained.html">PMI explained</a> for the exact legal thresholds and how they work.</li>
+        <li><strong>Estimating your loan balance at a future date</strong> — useful when considering refinancing, selling, or just tracking your net worth, without needing to log into your loan servicer's portal.</li>
+        <li><strong>Comparing "what if I add extra payments" scenarios.</strong> Generate a schedule with an extra monthly payment amount and compare the resulting balance and payoff date against the standard schedule — see <a href="/guides/extra-payments-save-interest.html">how extra payments save interest</a> for a worked comparison.</li>
+        <li><strong>Understanding your total interest cost</strong> before committing to a loan — summing the Interest column (or checking the summary total) shows the real all-in cost of borrowing, which is easy to lose sight of when only looking at the monthly payment.</li>
+      </ul>
+
+      <h2>What an amortization schedule does NOT show</h2>
+      <p>A standard amortization schedule covers principal and interest only. For a mortgage specifically, your <em>actual</em> total monthly payment likely also includes property tax, homeowners insurance, PMI (if applicable), and HOA dues — none of which are part of the amortization schedule itself, since those costs don't reduce your loan balance. Use the <a href="/mortgage-calculator">mortgage calculator</a> for the full monthly payment including those items, and the <a href="/amortization-schedule">amortization schedule calculator</a> specifically for the payment-by-payment principal/interest breakdown.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Why does the Interest column decrease every single row?</p>
+      <p>Because interest each period is calculated on your current remaining balance, and that balance decreases with every payment. A smaller balance produces a smaller interest charge, which is why the Interest column steadily shrinks (and the Principal column steadily grows) from the first payment to the last.</p>
+      <p class="faq-q">Can I get a schedule that includes extra payments?</p>
+      <p>Yes — the <a href="/amortization-schedule">amortization schedule calculator</a> has an optional extra-payment field. Adding an extra amount reduces the Balance column faster than the standard schedule and shortens the total number of rows (payments) needed to reach a $0 balance.</p>
+      <p class="faq-q">Can I download the schedule instead of reading it on screen?</p>
+      <p>Yes — the amortization schedule calculator includes a "Download CSV" button that exports the complete table as a spreadsheet file you can open in Excel, Google Sheets, or Numbers.</p>
+      <p class="faq-q">Does the schedule change if my interest rate changes later (like with an ARM)?</p>
+      <p>A standard amortization schedule assumes a fixed rate for the full term. If you have an adjustable-rate mortgage, your actual future payments and balance will diverge from a fixed-rate schedule at each rate adjustment point — the schedule shown by this or any standard calculator represents what would happen if the rate never changed.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Generate your own complete schedule</p>
+      <a href="/amortization-schedule">Try the amortization schedule calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This guide explains the standard structure of an amortization schedule for general informational purposes. It does not include lender fees, closing costs, taxes, insurance, or rate changes for adjustable-rate loans. Confirm your actual schedule with your lender or loan servicer.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/pmi-explained.html">PMI explained</a></li>
+        <li><a href="/guides/why-early-mortgage-payments-are-mostly-interest.html">Why early mortgage payments are mostly interest</a></li>
+        <li><a href="/guides/how-mortgage-amortization-works.html">How mortgage amortization works</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Read an Amortization Schedule",
+    "description": "How to read an amortization schedule: what each column means (payment number, date, principal, interest, balance) and practical uses like finding your PMI removal date.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/how-to-read-an-amortization-schedule.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Why does the interest column decrease every single row in an amortization schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Because interest each period is calculated on your current remaining balance, and that balance decreases with every payment, producing a smaller interest charge each time."}},
+      {"@type": "Question", "name": "Can I get an amortization schedule that includes extra payments?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, most amortization calculators have an optional extra-payment field that reduces the balance column faster and shortens the total number of payments needed."}},
+      {"@type": "Question", "name": "Does an amortization schedule change if my interest rate changes later, like with an ARM?", "acceptedAnswer": {"@type": "Answer", "text": "A standard amortization schedule assumes a fixed rate for the full term. With an adjustable-rate mortgage, actual future payments and balance will diverge from a fixed-rate schedule at each rate adjustment point."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "How to Read an Amortization Schedule", "item": "https://calc.quietools.com/guides/how-to-read-an-amortization-schedule.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

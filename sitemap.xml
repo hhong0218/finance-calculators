@@ -7,6 +7,19 @@
   <url><loc>https://calc.quietools.com/retirement-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://calc.quietools.com/paycheck-calculator</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://calc.quietools.com/amortization-schedule</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calc.quietools.com/guides/index.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://calc.quietools.com/guides/how-mortgage-amortization-works.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/pmi-explained.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/15-year-vs-30-year-mortgage.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/debt-avalanche-vs-snowball.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/extra-payments-save-interest.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/how-compound-interest-works.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/401k-vs-ira-contribution-limits.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/how-much-to-save-for-retirement.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/gross-pay-vs-net-pay.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/fica-taxes-explained.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/how-to-read-an-amortization-schedule.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://calc.quietools.com/guides/why-early-mortgage-payments-are-mostly-interest.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
   <url><loc>https://calc.quietools.com/about.html</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://calc.quietools.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://calc.quietools.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>

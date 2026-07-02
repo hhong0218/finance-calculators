@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gross Pay vs. Net Pay — What's the Difference? | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/gross-pay-vs-net-pay.html">
+  <meta name="description" content="Gross pay vs. net pay explained: what gets deducted (federal tax, FICA, state tax, benefits) between your salary and your take-home pay, with a worked 2026 example.">
+  <meta name="keywords" content="gross pay vs net pay, what is gross pay, what is net pay, take home pay explained, paycheck deductions explained">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Gross Pay vs. Net Pay — What's the Difference?">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="The difference between gross pay and net (take-home) pay, what typically gets deducted, and a worked 2026 example.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/gross-pay-vs-net-pay.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .waterfall{display:flex;flex-direction:column;gap:.45rem;margin-top:.75rem}
+    .waterfall .line{display:flex;justify-content:space-between;font-size:.92rem;padding:.3rem 0;border-bottom:1px dashed var(--border)}
+    .waterfall .line .k{color:var(--muted)}
+    .waterfall .line .v{font-weight:700;font-variant-numeric:tabular-nums}
+    .waterfall .line.deduct .v{color:var(--err)}
+    .waterfall .line.net{border-bottom:none;border-top:2px solid var(--border);padding-top:.6rem;margin-top:.2rem;font-size:1rem}
+    .waterfall .line.net .v{color:var(--ok)}
+    .source-note{font-size:.78rem;color:var(--muted);margin-top:.5rem}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › Gross Pay vs. Net Pay</p>
+    <h1>Gross Pay vs. Net Pay: What's the Difference?</h1>
+    <p class="meta">Paycheck guide · Tax year 2026</p>
+    <p class="lead">The number on your offer letter and the number that actually lands in your bank account are rarely the same. Here's exactly what happens between the two, and a worked example using real 2026 figures.</p>
+
+    <div class="cta-box">
+      <p>Calculate your own take-home pay</p>
+      <a href="/paycheck-calculator">Try the paycheck calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>The short definitions</h2>
+      <p><strong>Gross pay</strong> is your full earnings before anything is taken out — your salary or hourly wages times hours worked, before taxes or any other deduction. <strong>Net pay</strong> (also called take-home pay) is what's actually deposited into your bank account after every deduction has been subtracted. The gap between the two is entirely made up of taxes and, if applicable, benefit deductions — nothing else changes it.</p>
+
+      <h2>What typically gets deducted</h2>
+      <ul>
+        <li><strong>Federal income tax</strong> — withheld based on your income, filing status, and the elections on your Form W-4. This uses progressive tax brackets, meaning different portions of your income are taxed at different rates.</li>
+        <li><strong>FICA taxes (Social Security &amp; Medicare)</strong> — a flat-rate payroll tax that funds these federal programs, separate from income tax. See <a href="/guides/fica-taxes-explained.html">FICA taxes explained</a> for the exact 2026 rates and thresholds.</li>
+        <li><strong>State and/or local income tax</strong> — varies enormously by location; nine US states have no wage income tax at all, while others have their own bracket structures independent of federal rules.</li>
+        <li><strong>Pre-tax benefit deductions</strong> — contributions to a traditional 401(k), a Health Savings Account (HSA), or certain other employer benefits are often deducted <em>before</em> federal tax is calculated, which lowers your taxable income (and therefore your federal tax) in addition to funding the benefit itself.</li>
+        <li><strong>Post-tax deductions</strong> — some benefits (like Roth 401(k) contributions or certain insurance premiums) are deducted after tax is already calculated, so they reduce net pay without affecting your taxable income.</li>
+      </ul>
+
+      <div class="example-box">
+        <h3>Worked example: $2,500 gross biweekly pay, single filer, 2026</h3>
+        <p>This matches the default example on this site's own <a href="/paycheck-calculator">paycheck calculator</a> — no state tax and no pre-tax deductions, so you can see the federal-only breakdown clearly:</p>
+        <div class="waterfall">
+          <div class="line"><span class="k">Gross pay</span><span class="v">$2,500.00</span></div>
+          <div class="line deduct"><span class="k">Federal income tax</span><span class="v">-$216.15</span></div>
+          <div class="line deduct"><span class="k">Social Security (6.2%)</span><span class="v">-$155.00</span></div>
+          <div class="line deduct"><span class="k">Medicare (1.45%)</span><span class="v">-$36.25</span></div>
+          <div class="line net"><span class="k">Net (take-home) pay</span><span class="v">$2,092.60</span></div>
+        </div>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">On an annualized basis, this is $65,000 gross → $54,407.50 net (an effective federal rate of about 8.65%). Figures computed directly with this site's paycheck engine, using 2026 IRS federal brackets/standard deduction and 2026 FICA rates. Add your own pre-tax deductions or state rate in the calculator for a fuller picture.</p>
+      </div>
+
+      <p>In this example, roughly <strong>16.3% of gross pay</strong> ($407.40 of $2,500) goes to federal tax and FICA combined, leaving $2,092.60 as net pay — and that's before any state tax, which would reduce net pay further for most filers. Note this example intentionally excludes state tax to isolate the federal-only picture; your actual take-home percentage will differ based on your state, filing status, and any pre-tax deductions.</p>
+
+      <h2>Why net pay can look different from a "back of envelope" tax estimate</h2>
+      <p>A lot of people estimate their take-home pay by just applying their marginal tax bracket rate to their whole salary, which overstates the tax and understates net pay. Because federal tax brackets are progressive, only the income within each bracket is taxed at that bracket's rate — the first portion of your income is taxed at 10%, the next portion at 12%, and so on, only reaching your top marginal rate on the last slice of income. This is why the <em>effective</em> rate (total tax ÷ total income) is meaningfully lower than your top marginal bracket in almost every case.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Does gross pay include bonuses and overtime?</p>
+      <p>Yes — gross pay is your total earnings for the pay period before deductions, which includes regular wages, overtime, and any bonus paid in that period. Bonuses are sometimes withheld at a different flat supplemental rate by employers rather than the standard payroll tax tables, which is a separate topic from the standard gross-to-net calculation shown here.</p>
+      <p class="faq-q">Why is my actual paycheck different from this calculator's estimate?</p>
+      <p>This calculator uses a simplified, standard-deduction approach that approximates a single-job taxpayer's effective tax. Your actual employer withholding is based on IRS Publication 15-T's percentage-method tables, driven by your specific Form W-4 elections (multiple jobs, dependents, extra withholding requested) — so small differences from your actual pay stub are expected. See the <a href="/paycheck-calculator">paycheck calculator</a>'s full methodology notes for details.</p>
+      <p class="faq-q">Do pre-tax 401(k) contributions reduce my net pay by the full contribution amount?</p>
+      <p>Not quite — a pre-tax contribution reduces your net pay by the contribution amount minus the federal (and FICA, for some pre-tax benefits) tax you would have paid on that money anyway. So a $200 pre-tax 401(k) contribution typically reduces your take-home pay by somewhat less than $200, because it also lowers your tax bill.</p>
+      <p class="faq-q">Is net pay the same as disposable income?</p>
+      <p>Not necessarily — net pay is what hits your bank account from your paycheck, but you may have other post-tax obligations (loan payments, insurance premiums paid outside payroll) that further reduce what's truly "disposable." Net pay is a paycheck concept, not a full personal budget concept.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Estimate your own take-home pay</p>
+      <a href="/paycheck-calculator">Try the paycheck calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not tax advice.</strong> This guide uses published 2026 IRS federal tax brackets, standard deductions, and FICA rates for a simplified illustrative example. It does not replicate your employer's exact Form W-4-based withholding, and does not include state or local tax. Consult a tax professional or the IRS Tax Withholding Estimator for guidance specific to your situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/fica-taxes-explained.html">FICA taxes explained</a></li>
+        <li><a href="/guides/401k-vs-ira-contribution-limits.html">401(k) vs. IRA contribution limits</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gross Pay vs. Net Pay: What's the Difference?",
+    "description": "Gross pay vs. net pay explained: what gets deducted (federal tax, FICA, state tax, benefits) between your salary and your take-home pay, with a worked 2026 example.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/gross-pay-vs-net-pay.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Does gross pay include bonuses and overtime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, gross pay is total earnings for the pay period before deductions, including regular wages, overtime, and any bonus paid in that period."}},
+      {"@type": "Question", "name": "Why is my actual paycheck different from an online calculator's estimate?", "acceptedAnswer": {"@type": "Answer", "text": "Most calculators use a simplified standard-deduction approach. Actual employer withholding uses IRS Publication 15-T percentage-method tables driven by your specific Form W-4 elections, so small differences from your pay stub are expected."}},
+      {"@type": "Question", "name": "Do pre-tax 401(k) contributions reduce net pay by the full contribution amount?", "acceptedAnswer": {"@type": "Answer", "text": "Not quite. A pre-tax contribution reduces net pay by the contribution amount minus the tax you would have paid on that money anyway, so take-home pay typically drops by somewhat less than the contribution."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Gross Pay vs. Net Pay", "item": "https://calc.quietools.com/guides/gross-pay-vs-net-pay.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

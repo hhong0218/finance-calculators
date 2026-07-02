@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Early Mortgage Payments Are Mostly Interest | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/why-early-mortgage-payments-are-mostly-interest.html">
+  <meta name="description" content="Why it feels like you're not making progress on your mortgage: a deep dive on why early payments are interest-heavy, with the exact crossover payment where principal finally overtakes interest.">
+  <meta name="keywords" content="why is my mortgage mostly interest, mortgage feels like no progress, when does principal exceed interest, mortgage crossover point, why does my loan balance barely move">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Why Early Mortgage Payments Are Mostly Interest">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Why mortgage payments feel interest-heavy for years, with the exact crossover payment where principal finally overtakes interest in a worked example.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/why-early-mortgage-payments-are-mostly-interest.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--interest:#c98a3a;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--interest:#e0a668;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .example-box table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.6rem}
+    .example-box th,.example-box td{border:1px solid var(--border);padding:.5rem .6rem;text-align:right}
+    .example-box th:first-child,.example-box td:first-child{text-align:left}
+    .example-box th{background:var(--panel-2);font-weight:700}
+    .callout-stat{text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.5rem;margin:1.25rem 0}
+    .callout-stat .big{font-size:2.1rem;font-weight:800;letter-spacing:-.02em}
+    .callout-stat .sub{font-size:.88rem;opacity:.92;margin-top:.25rem}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › Why Early Mortgage Payments Are Mostly Interest</p>
+    <h1>Why It Feels Like You're Not Making Progress on Your Mortgage</h1>
+    <p class="meta">Amortization guide · Deep dive on the "interest-heavy early years" phenomenon</p>
+    <p class="lead">You've been paying your mortgage for years, and your loan balance has barely moved. This isn't your imagination, and it isn't a bad deal — it's a predictable, well-understood mathematical property of every fixed-rate amortizing loan. Here's exactly when that feeling changes, with a worked example.</p>
+
+    <div class="cta-box">
+      <p>See exactly where you stand on your own loan</p>
+      <a href="/amortization-schedule">Try the amortization schedule calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>The feeling, and why it's real</h2>
+      <p>Plenty of homeowners look at their mortgage statement after a year or two of on-time payments and are surprised at how little the balance has dropped compared to how much they've paid in total. This isn't a sign of a bad loan, a mistake, or a scam — it's the direct, predictable consequence of how interest is calculated on every standard fixed-rate loan. (For the general mechanism, see <a href="/guides/how-mortgage-amortization-works.html">how mortgage amortization works</a>; this guide focuses specifically on when the feeling changes and by how much.)</p>
+
+      <h2>The exact crossover point, worked out</h2>
+      <p>Every fixed-rate loan has a specific payment number where the principal portion of your payment finally overtakes the interest portion for good — before that point, more than half of every payment is interest; after it, more than half is principal. For a common example — a $400,000 loan at 6.5% APR over 30 years — here's exactly where that happens:</p>
+
+      <div class="callout-stat">
+        <div class="big">Payment #233 (Year 19.4)</div>
+        <div class="sub">The first payment where principal ($1,266.27) exceeds interest ($1,262.00) — out of 360 total payments</div>
+      </div>
+
+      <p>That means for a $400,000, 30-year loan at 6.5%, you're paying <strong>more in interest than in principal for roughly the first 19 years and 4 months</strong> — nearly two-thirds of the entire loan term. This isn't a quirk of this specific example; every standard fixed-rate loan has a similar (though not identical) crossover point that lands well past the halfway mark of the term, because interest is front-loaded onto the largest remaining balances.</p>
+
+      <div class="example-box">
+        <h3>The five-year mark: a common gut-check moment</h3>
+        <p>Many people move, refinance, or just check in around the five-year mark of a mortgage. For this same $400,000 loan, here's the state of things after exactly 5 years (60 payments) of on-time payments:</p>
+        <table>
+          <thead><tr><th></th><th>After 5 years</th></tr></thead>
+          <tbody>
+            <tr><td>Total paid so far</td><td>$151,696.20</td></tr>
+            <tr><td>&nbsp;&nbsp;— of which interest</td><td>$126,140.27</td></tr>
+            <tr><td>&nbsp;&nbsp;— of which principal</td><td>$25,556.06</td></tr>
+            <tr><td>Remaining balance</td><td>$374,443.91</td></tr>
+            <tr><td>Original balance paid down</td><td>6.39%</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">Figures computed directly with this site's amortization engine. Despite paying over $151,000 total across 5 years, the loan balance has only dropped by about 6.4% of the original amount — because roughly 83% of every payment in this period ($126,140 of $151,696) went to interest, not principal.</p>
+      </div>
+
+      <h2>Why this isn't a bad deal — it's just how amortization works</h2>
+      <p>It's tempting to read the numbers above as evidence that a mortgage is a bad deal in the early years, but that framing misses what's actually happening: you're paying interest on the <em>current</em> balance you're borrowing, which is largest at the very start. As the balance shrinks — slowly at first, then faster — the interest charge shrinks with it, and more of each identical payment goes to principal. The total interest paid over the loan's full life is fixed by the amortization formula given your rate, term, and amount; it doesn't change based on how the interest happens to be front-loaded within the schedule. Making extra payments specifically targets this front-loaded period, since paying down principal early avoids years of interest that would otherwise accrue on that portion of the balance — see <a href="/guides/extra-payments-save-interest.html">how extra payments save interest</a> for the math on that.</p>
+
+      <h2>How the crossover point shifts with rate and term</h2>
+      <p>The crossover point isn't fixed at "year 19" for every loan — it shifts with your interest rate and term:</p>
+      <ul>
+        <li><strong>Higher rates push the crossover later.</strong> A higher interest rate means a larger interest charge on any given balance, so it takes longer for principal to overtake it.</li>
+        <li><strong>Shorter terms pull the crossover earlier (as a percentage of the loan).</strong> A 15-year loan reaches its crossover point earlier in absolute years than a 30-year loan at a comparable rate, partly because the required payment is larger relative to the balance from the start. See <a href="/guides/15-year-vs-30-year-mortgage.html">15-year vs. 30-year mortgage</a> for a full comparison.</li>
+        <li><strong>Extra payments pull the crossover earlier</strong> for the same original loan, since they accelerate principal paydown directly.</li>
+      </ul>
+      <p>To find your own loan's exact crossover point, generate a full schedule with the <a href="/amortization-schedule">amortization schedule calculator</a> and scan the Principal and Interest columns for the row where Principal first exceeds Interest — see <a href="/guides/how-to-read-an-amortization-schedule.html">how to read an amortization schedule</a> for a walkthrough of each column.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Does every mortgage have a crossover point around year 19?</p>
+      <p>No — the specific payment number depends entirely on your rate and term. The "payment #233 / year 19.4" figure in this guide is specific to a $400,000, 30-year loan at 6.5% APR. A different rate or term will produce a different crossover point, generally still well past the halfway mark of a 30-year term.</p>
+      <p class="faq-q">Does this mean I'm losing money in the early years?</p>
+      <p>No — you're paying the cost of borrowing (interest) on the amount you currently owe, which is standard for any loan. The total interest over the life of the loan is fixed by your rate, term, and amount; the front-loading doesn't add extra total cost, it just distributes the same total interest unevenly across the schedule.</p>
+      <p class="faq-q">Can I change the crossover point without refinancing?</p>
+      <p>Yes — making extra principal payments shifts your effective crossover point earlier by directly reducing the balance interest is calculated on, without needing to refinance into a new loan. This differs from refinancing, which restarts a new amortization schedule from scratch (and re-introduces a fresh interest-heavy early period on the new loan).</p>
+      <p class="faq-q">How does this relate to PMI removal timing?</p>
+      <p>They're related but distinct milestones. PMI removal is based on your loan-to-value ratio reaching 78-80% (see <a href="/guides/pmi-explained.html">PMI explained</a>), while the interest/principal crossover point discussed here is about the composition of a single payment. Both tend to happen well into a 30-year loan's term, but they're not the same calculation and don't necessarily happen at the same payment number.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Find your own loan's crossover point</p>
+      <a href="/amortization-schedule">Try the amortization schedule calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> The figures in this guide are a worked example using a specific loan amount, rate, and term, computed with this site's amortization engine. Your own loan's crossover point will differ based on your specific rate, term, and amount. Consult a mortgage lender or financial advisor for guidance specific to your situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/how-mortgage-amortization-works.html">How mortgage amortization works</a></li>
+        <li><a href="/guides/how-to-read-an-amortization-schedule.html">How to read an amortization schedule</a></li>
+        <li><a href="/guides/extra-payments-save-interest.html">How extra payments save interest</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Why It Feels Like You're Not Making Progress on Your Mortgage",
+    "description": "Why it feels like you're not making progress on your mortgage: a deep dive on why early payments are interest-heavy, with the exact crossover payment where principal finally overtakes interest.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/why-early-mortgage-payments-are-mostly-interest.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Does every mortgage have a crossover point around year 19?", "acceptedAnswer": {"@type": "Answer", "text": "No, the specific payment number depends entirely on your rate and term. A different rate or term will produce a different crossover point, generally still well past the halfway mark of a 30-year term."}},
+      {"@type": "Question", "name": "Does paying mostly interest in the early years mean I'm losing money?", "acceptedAnswer": {"@type": "Answer", "text": "No. You're paying the cost of borrowing on the amount you currently owe, which is standard for any loan. The total interest over the life of the loan is fixed by your rate, term, and amount."}},
+      {"@type": "Question", "name": "Can I change my mortgage's interest and principal crossover point without refinancing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, making extra principal payments shifts the effective crossover point earlier by directly reducing the balance interest is calculated on, without needing to refinance into a new loan."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Why Early Mortgage Payments Are Mostly Interest", "item": "https://calc.quietools.com/guides/why-early-mortgage-payments-are-mostly-interest.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>

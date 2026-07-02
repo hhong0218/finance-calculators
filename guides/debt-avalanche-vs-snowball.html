@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debt Avalanche vs. Debt Snowball — Which Payoff Method Wins? | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/debt-avalanche-vs-snowball.html">
+  <meta name="description" content="Debt avalanche (highest interest rate first) vs. debt snowball (smallest balance first): how each method works, the math behind avalanche, and why snowball's psychology often wins in practice.">
+  <meta name="keywords" content="debt avalanche vs snowball, debt snowball method, debt avalanche method, pay off debt fastest, Dave Ramsey debt snowball, which debt payoff method is best">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Debt Avalanche vs. Debt Snowball — Which Payoff Method Wins?">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="How the debt avalanche (highest rate first) and debt snowball (smallest balance first) methods work, and the honest tradeoff between mathematically optimal and behaviorally motivating.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/debt-avalanche-vs-snowball.html">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9QKMV5JQL5');
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .compare-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0}
+    @media(max-width:600px){.compare-cols{grid-template-columns:1fr}}
+    .compare-cols .col{border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.2rem;background:var(--panel);box-shadow:var(--shadow)}
+    .compare-cols .col h3{margin-top:0;color:var(--accent);font-size:1.02rem}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index.html" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index.html">Guides</a> › Debt Avalanche vs. Snowball</p>
+    <h1>Debt Avalanche vs. Debt Snowball: Which Payoff Method Wins?</h1>
+    <p class="meta">Loan payoff guide · Strategy comparison</p>
+    <p class="lead">If you have more than one debt, the order you pay them off in matters. Two well-known strategies — the debt avalanche and the debt snowball — give different answers, and the "right" one depends on whether you're optimizing for math or motivation.</p>
+
+    <div class="cta-box">
+      <p>See how extra payments affect your own debt</p>
+      <a href="/loan-payoff-calculator">Try the loan payoff calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>Both methods start the same way</h2>
+      <p>Whether you use avalanche or snowball, the mechanics are identical: keep making the minimum required payment on every debt, and direct any extra money you can find toward exactly <strong>one</strong> target debt at a time. Once that target debt is fully paid off, you roll its old payment amount (minimum + whatever extra you were adding) into the next target debt. The two methods only differ in <strong>which debt you pick as the target first</strong>.</p>
+
+      <div class="compare-cols">
+        <div class="col">
+          <h3>Debt avalanche</h3>
+          <p>Target the debt with the <strong>highest interest rate</strong> first, regardless of balance size. Once it's paid off, move to the next-highest rate.</p>
+        </div>
+        <div class="col">
+          <h3>Debt snowball</h3>
+          <p>Target the debt with the <strong>smallest balance</strong> first, regardless of interest rate. Once it's paid off, move to the next-smallest balance.</p>
+        </div>
+      </div>
+
+      <h2>The avalanche method: mathematically optimal</h2>
+      <p>Paying off your highest-interest-rate debt first is the approach that minimizes the total interest you pay across all your debts, given a fixed amount of extra money to put toward payoff each month. This is a direct consequence of how interest accrues: every day a high-rate balance sits unpaid, it's costing you more per dollar than a lower-rate balance would. Attacking the most expensive debt first means less total money leaks out as interest over the full payoff period. This is the standard answer you'll get from most personal finance economists and "optimal" calculators when the question is framed purely as a math problem.</p>
+
+      <h2>The debt snowball: built for motivation, not math</h2>
+      <p>The debt snowball method was popularized by financial personality Dave Ramsey as part of his broader debt-payoff framework, and it deliberately trades away some interest savings for psychological momentum. Paying off your smallest balance first — even if it has a low interest rate — gives you a complete "win" faster: one fewer bill, one fewer statement, a debt you can cross off your list entirely. Ramsey and other proponents argue that for many people, that early sense of progress and reduced number of open accounts is what keeps them sticking with a payoff plan long enough to actually finish it, which matters more in practice than shaving some interest off a plan people abandon halfway through.</p>
+
+      <h2>The honest tradeoff — this isn't really a "which is correct" question</h2>
+      <p>It's tempting to declare one method the winner, but the two approaches are optimizing for genuinely different things:</p>
+      <ul>
+        <li><strong>Avalanche wins on pure math</strong> — for a fixed extra-payment budget, it will always result in equal or less total interest paid compared to snowball, sometimes by a meaningful amount if your rates vary widely across debts.</li>
+        <li><strong>Snowball wins on behavioral adherence, for some people</strong> — debt payoff is a multi-month or multi-year commitment, and a strategy only "works" if you stick with it. If quick wins are what keeps you consistent, the interest math advantage of avalanche is irrelevant if you'd have given up on avalanche halfway through.</li>
+        <li><strong>The gap is often smaller than people assume</strong> — if your debts have similar interest rates, the two methods produce nearly identical results, and the choice becomes almost entirely about which order feels more motivating to you.</li>
+      </ul>
+      <p>A reasonable, balanced way to decide: if you're confident you'll follow through regardless of which debt goes first, avalanche saves you real money with no behavioral downside. If you know from experience that you need visible quick wins to stay consistent, snowball's psychological structure may get you to debt-free faster in practice, even though it's not the mathematically optimal path on paper.</p>
+
+      <div class="example-box">
+        <h3>Illustrative example</h3>
+        <p>Say you have three debts: a $1,000 balance at 22% APR, a $6,000 balance at 12% APR, and a $15,000 balance at 8% APR, and you have $300/month extra to put toward payoff beyond the minimums. Avalanche would target the $1,000 balance first (it happens to also be the smallest here, so avalanche and snowball agree on debt #1) — then move to the $6,000 balance at 12% next, since it has the higher rate of the two remaining. Snowball would also finish the $1,000 balance first, but would then move to the $15,000 balance only after also finishing the $6,000 one, since snowball only cares about balance size, working through $6,000 before $15,000 — which in this particular example happens to align with rate order too. In practice, avalanche and snowball only meaningfully diverge when your <em>smallest</em> balance and your <em>highest rate</em> aren't the same debt — run your own real balances and rates through the <a href="/loan-payoff-calculator">loan payoff calculator</a> to see your specific target order and payoff timeline for extra-payment scenarios.</p>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Which method is "correct"?</p>
+      <p>Neither is universally correct — they optimize for different things. Avalanche minimizes total interest paid; snowball optimizes for the psychological momentum of quick wins. Most personal finance sources present this as a legitimate tradeoff rather than a case where one method is simply wrong.</p>
+      <p class="faq-q">Can I combine the two approaches?</p>
+      <p>Yes — some people use a hybrid: knock out one or two very small balances first for quick momentum (borrowing from snowball), then switch to strict highest-rate-first ordering for the rest (avalanche). There's no rule that you must use one method purely.</p>
+      <p class="faq-q">Does this apply to all types of debt?</p>
+      <p>The general framework applies to any set of fixed-rate installment debts (credit cards, personal loans, auto loans, student loans). Credit cards with revolving balances and variable rates work with the same targeting logic, though their rates can change over time, which is worth rechecking periodically.</p>
+      <p class="faq-q">How much does the interest-rate order actually matter for my situation?</p>
+      <p>It depends on how much your rates vary and how large your balances are. Use the <a href="/loan-payoff-calculator">loan payoff calculator</a> on each individual debt to see the total interest and payoff time under different extra-payment amounts, which helps you see the real dollar stakes for your specific debts rather than a generic example.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Model your own payoff timeline and interest savings</p>
+      <a href="/loan-payoff-calculator">Try the loan payoff calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This guide describes two well-established, general-purpose debt payoff frameworks for informational purposes only. It is not personalized debt counseling. If you're dealing with significant debt or considering debt consolidation, settlement, or bankruptcy, consult a certified credit counselor or financial advisor about your specific situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/extra-payments-save-interest.html">How extra payments save interest</a></li>
+        <li><a href="/guides/how-to-read-an-amortization-schedule.html">How to read an amortization schedule</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Debt Avalanche vs. Debt Snowball: Which Payoff Method Wins?",
+    "description": "Debt avalanche (highest interest rate first) vs. debt snowball (smallest balance first): how each method works, the math behind avalanche, and why snowball's psychology often wins in practice.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/debt-avalanche-vs-snowball.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Which debt payoff method is correct, avalanche or snowball?", "acceptedAnswer": {"@type": "Answer", "text": "Neither is universally correct, they optimize for different things. Avalanche minimizes total interest paid; snowball optimizes for the psychological momentum of quick wins."}},
+      {"@type": "Question", "name": "Can I combine the debt avalanche and debt snowball approaches?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, some people knock out one or two very small balances first for quick momentum, then switch to strict highest-rate-first ordering for the rest."}},
+      {"@type": "Question", "name": "Does the debt avalanche vs snowball choice apply to all types of debt?", "acceptedAnswer": {"@type": "Answer", "text": "The general framework applies to any set of fixed-rate installment debts including credit cards, personal loans, auto loans, and student loans."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Debt Avalanche vs. Snowball", "item": "https://calc.quietools.com/guides/debt-avalanche-vs-snowball.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></div>
+  </footer>
+</body>
+</html>
