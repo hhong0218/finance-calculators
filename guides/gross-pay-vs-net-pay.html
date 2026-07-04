@@ -187,9 +187,38 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Does gross pay include bonuses and overtime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, gross pay is total earnings for the pay period before deductions, including regular wages, overtime, and any bonus paid in that period."}},
-      {"@type": "Question", "name": "Why is my actual paycheck different from an online calculator's estimate?", "acceptedAnswer": {"@type": "Answer", "text": "Most calculators use a simplified standard-deduction approach. Actual employer withholding uses IRS Publication 15-T percentage-method tables driven by your specific Form W-4 elections, so small differences from your pay stub are expected."}},
-      {"@type": "Question", "name": "Do pre-tax 401(k) contributions reduce net pay by the full contribution amount?", "acceptedAnswer": {"@type": "Answer", "text": "Not quite. A pre-tax contribution reduces net pay by the contribution amount minus the tax you would have paid on that money anyway, so take-home pay typically drops by somewhat less than the contribution."}}
+      {
+        "@type": "Question",
+        "name": "Does gross pay include bonuses and overtime?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — gross pay is your total earnings for the pay period before deductions, which includes regular wages, overtime, and any bonus paid in that period. Bonuses are sometimes withheld at a different flat supplemental rate by employers rather than the standard payroll tax tables, which is a separate topic from the standard gross-to-net calculation shown here."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my actual paycheck different from this calculator's estimate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator uses a simplified, standard-deduction approach that approximates a single-job taxpayer's effective tax. Your actual employer withholding is based on IRS Publication 15-T's percentage-method tables, driven by your specific Form W-4 elections (multiple jobs, dependents, extra withholding requested) — so small differences from your actual pay stub are expected. See the paycheck calculator's full methodology notes for details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do pre-tax 401(k) contributions reduce my net pay by the full contribution amount?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not quite — a pre-tax contribution reduces your net pay by the contribution amount minus the federal (and FICA, for some pre-tax benefits) tax you would have paid on that money anyway. So a $200 pre-tax 401(k) contribution typically reduces your take-home pay by somewhat less than $200, because it also lowers your tax bill."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is net pay the same as disposable income?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not necessarily — net pay is what hits your bank account from your paycheck, but you may have other post-tax obligations (loan payments, insurance premiums paid outside payroll) that further reduce what's truly \"disposable.\" Net pay is a paycheck concept, not a full personal budget concept."
+        }
+      }
     ]
   }
   </script>

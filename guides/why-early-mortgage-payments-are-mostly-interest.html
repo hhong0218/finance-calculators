@@ -198,9 +198,38 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Does every mortgage have a crossover point around year 19?", "acceptedAnswer": {"@type": "Answer", "text": "No, the specific payment number depends entirely on your rate and term. A different rate or term will produce a different crossover point, generally still well past the halfway mark of a 30-year term."}},
-      {"@type": "Question", "name": "Does paying mostly interest in the early years mean I'm losing money?", "acceptedAnswer": {"@type": "Answer", "text": "No. You're paying the cost of borrowing on the amount you currently owe, which is standard for any loan. The total interest over the life of the loan is fixed by your rate, term, and amount."}},
-      {"@type": "Question", "name": "Can I change my mortgage's interest and principal crossover point without refinancing?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, making extra principal payments shifts the effective crossover point earlier by directly reducing the balance interest is calculated on, without needing to refinance into a new loan."}}
+      {
+        "@type": "Question",
+        "name": "Does every mortgage have a crossover point around year 19?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — the specific payment number depends entirely on your rate and term. The \"payment #233 / year 19.4\" figure in this guide is specific to a $400,000, 30-year loan at 6.5% APR. A different rate or term will produce a different crossover point, generally still well past the halfway mark of a 30-year term."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this mean I'm losing money in the early years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — you're paying the cost of borrowing (interest) on the amount you currently owe, which is standard for any loan. The total interest over the life of the loan is fixed by your rate, term, and amount; the front-loading doesn't add extra total cost, it just distributes the same total interest unevenly across the schedule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the crossover point without refinancing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — making extra principal payments shifts your effective crossover point earlier by directly reducing the balance interest is calculated on, without needing to refinance into a new loan. This differs from refinancing, which restarts a new amortization schedule from scratch (and re-introduces a fresh interest-heavy early period on the new loan)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does this relate to PMI removal timing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They're related but distinct milestones. PMI removal is based on your loan-to-value ratio reaching 78-80% (see PMI explained), while the interest/principal crossover point discussed here is about the composition of a single payment. Both tend to happen well into a 30-year loan's term, but they're not the same calculation and don't necessarily happen at the same payment number."
+        }
+      }
     ]
   }
   </script>

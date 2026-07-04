@@ -189,9 +189,30 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Does a 15-year mortgage amortize differently than a 30-year one?", "acceptedAnswer": {"@type": "Answer", "text": "The mechanism is identical, but because a 15-year loan pays down principal faster, less total interest accrues over the life of the loan and the interest-heavy early period is shorter."}},
-      {"@type": "Question", "name": "Can I see my own loan's exact amortization schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, enter your loan amount, rate, and term into the amortization schedule calculator for a full payment-by-payment table, downloadable as a CSV."}},
-      {"@type": "Question", "name": "Is amortization the same for adjustable-rate mortgages (ARMs)?", "acceptedAnswer": {"@type": "Answer", "text": "The core principal and interest mechanic is the same, but an ARM's rate, monthly payment, and amortization schedule can change at scheduled adjustment points."}}
+      {
+        "@type": "Question",
+        "name": "Does a 15-year mortgage amortize differently than a 30-year one?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The mechanism is identical — interest is still calculated on the current balance every month — but because a 15-year loan pays down principal faster, less total interest accrues over the life of the loan and the \"mostly interest\" early period is shorter. See 15-year vs. 30-year mortgage for a full comparison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I see my own loan's exact amortization schedule?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — enter your loan amount, rate, and term into the amortization schedule calculator for a full payment-by-payment table, downloadable as a CSV."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is amortization the same for adjustable-rate mortgages (ARMs)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The core principal/interest mechanic is the same, but an ARM's rate — and therefore its monthly payment and amortization schedule — can change at scheduled adjustment points. This guide and this site's calculators assume a fixed rate for the full term, which is the simpler and more common case to model precisely."
+        }
+      }
     ]
   }
   </script>

@@ -190,9 +190,38 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Is the Rule of 72 exactly accurate?", "acceptedAnswer": {"@type": "Answer", "text": "No, it's a well-known approximation of the exact logarithmic doubling-time formula, but it's accurate enough for mental math across typical personal finance rate ranges."}},
-      {"@type": "Question", "name": "Does compounding frequency, monthly versus annually, matter a lot?", "acceptedAnswer": {"@type": "Answer", "text": "It matters, but less dramatically than the rate itself or time horizon. More frequent compounding at the same nominal annual rate produces a modestly higher effective return."}},
-      {"@type": "Question", "name": "Is a 7% investment return guaranteed?", "acceptedAnswer": {"@type": "Answer", "text": "No. 7% is commonly cited as a long-run historical average for a diversified stock-heavy portfolio, but no investment guarantees a fixed return and actual results vary year to year."}}
+      {
+        "@type": "Question",
+        "name": "Is the Rule of 72 exactly accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, it's a well-known approximation. The exact doubling time formula involves natural logarithms (ln(2) / ln(1 + rate)), but the Rule of 72 gets close enough for mental math across the rate ranges (roughly 4%-15%) most commonly discussed in personal finance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does compounding frequency (monthly vs. annually) matter a lot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It matters, but less dramatically than the rate itself or the time horizon. More frequent compounding (monthly vs. annually) at the same nominal annual rate produces a modestly higher effective return, because interest starts earning its own interest sooner. This site's retirement calculator compounds monthly for a more realistic approximation of how most investment and savings accounts actually work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a 7% return guaranteed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. 7% is commonly cited as a long-run historical average for a diversified stock-heavy portfolio before inflation, but no investment guarantees a fixed return, and actual year-to-year results vary significantly. See the retirement calculator's notes on this for more detail, and the guide on how much to save for retirement for broader planning benchmarks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does compound interest apply to debt too?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — the same mechanic works against you with compounding debt (like credit card balances), which is part of why unpaid high-interest debt grows so quickly. See debt avalanche vs. snowball for strategies on paying down debt efficiently."
+        }
+      }
     ]
   }
   </script>

@@ -192,9 +192,38 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Does everyone pay the same FICA percentage?", "acceptedAnswer": {"@type": "Answer", "text": "The base rates of 6.2% Social Security and 1.45% Medicare are the same flat percentage for everyone with wage income, until you hit the Social Security wage base cap or the Additional Medicare Tax threshold."}},
-      {"@type": "Question", "name": "Why did my Social Security withholding stop partway through the year?", "acceptedAnswer": {"@type": "Answer", "text": "If your year-to-date wages from a single employer cross the Social Security wage base, that employer stops withholding Social Security tax for the rest of the year. This is expected, not an error."}},
-      {"@type": "Question", "name": "Is FICA the same as federal income tax?", "acceptedAnswer": {"@type": "Answer", "text": "No, they are separate taxes. Federal income tax uses progressive brackets based on taxable income. FICA is a flat-rate payroll tax specifically funding Social Security and Medicare, calculated on wages directly."}}
+      {
+        "@type": "Question",
+        "name": "Does everyone pay the same FICA percentage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The base rates (6.2% Social Security, 1.45% Medicare) are the same flat percentage for everyone with wage income, regardless of income level — until you hit the wage base cap for Social Security (where the tax stops entirely on income above it) or the Additional Medicare Tax threshold (where an extra 0.9% kicks in on income above it)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why did my Social Security withholding stop partway through the year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your year-to-date wages from a single employer cross the $184,500 wage base, that employer stops withholding Social Security tax for the rest of the year — this is expected and correct, not an error. Medicare withholding continues on all wages since it has no cap."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is FICA the same as federal income tax?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No — they're separate taxes with different structures. Federal income tax uses progressive brackets, and its rate depends on your total taxable income after deductions. FICA is a flat-rate payroll tax specifically funding Social Security and Medicare, calculated on wages directly. See gross pay vs. net pay for how both fit into your overall paycheck."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do these rates change every year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Social Security wage base is adjusted annually (it's indexed to national average wage growth). The core tax rates (6.2% and 1.45%) have been stable for a long period, but the wage base and the Additional Medicare Tax threshold should be reconfirmed for the specific tax year you're calculating."
+        }
+      }
     ]
   }
   </script>

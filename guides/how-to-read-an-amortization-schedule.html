@@ -196,9 +196,38 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {"@type": "Question", "name": "Why does the interest column decrease every single row in an amortization schedule?", "acceptedAnswer": {"@type": "Answer", "text": "Because interest each period is calculated on your current remaining balance, and that balance decreases with every payment, producing a smaller interest charge each time."}},
-      {"@type": "Question", "name": "Can I get an amortization schedule that includes extra payments?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, most amortization calculators have an optional extra-payment field that reduces the balance column faster and shortens the total number of payments needed."}},
-      {"@type": "Question", "name": "Does an amortization schedule change if my interest rate changes later, like with an ARM?", "acceptedAnswer": {"@type": "Answer", "text": "A standard amortization schedule assumes a fixed rate for the full term. With an adjustable-rate mortgage, actual future payments and balance will diverge from a fixed-rate schedule at each rate adjustment point."}}
+      {
+        "@type": "Question",
+        "name": "Why does the Interest column decrease every single row?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because interest each period is calculated on your current remaining balance, and that balance decreases with every payment. A smaller balance produces a smaller interest charge, which is why the Interest column steadily shrinks (and the Principal column steadily grows) from the first payment to the last."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get a schedule that includes extra payments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — the amortization schedule calculator has an optional extra-payment field. Adding an extra amount reduces the Balance column faster than the standard schedule and shortens the total number of rows (payments) needed to reach a $0 balance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download the schedule instead of reading it on screen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — the amortization schedule calculator includes a \"Download CSV\" button that exports the complete table as a spreadsheet file you can open in Excel, Google Sheets, or Numbers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the schedule change if my interest rate changes later (like with an ARM)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A standard amortization schedule assumes a fixed rate for the full term. If you have an adjustable-rate mortgage, your actual future payments and balance will diverge from a fixed-rate schedule at each rate adjustment point — the schedule shown by this or any standard calculator represents what would happen if the rate never changed."
+        }
+      }
     ]
   }
   </script>
