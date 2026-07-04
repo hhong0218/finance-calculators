@@ -25,7 +25,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-9QKMV5JQL5');
+    if(location.hostname.indexOf('.pages.dev')===-1){gtag('config','G-9QKMV5JQL5',{linker:{domains:['quietools.com','calc.quietools.com','image.quietools.com','dev.quietools.com','typing.quietools.com','invoice.quietools.com']}});}
   </script>
   <style>
     :root{
@@ -138,7 +138,7 @@
       <p class="status" id="status"></p>
     </div>
 
-    <div class="panel" id="resultsPanel" style="display:none">
+    <div class="panel" id="resultsPanel" data-tool="loan" style="display:none">
       <h2>Standard vs. With Extra Payments</h2>
       <div class="compare">
         <div class="col std">
@@ -222,6 +222,7 @@
   </footer>
 
   <script src="/assets/finance-math.js"></script>
+  <script src="/assets/analytics.js" defer></script>
   <script>
     "use strict";
     function $(id){ return document.getElementById(id); }

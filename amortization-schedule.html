@@ -25,7 +25,7 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-9QKMV5JQL5');
+    if(location.hostname.indexOf('.pages.dev')===-1){gtag('config','G-9QKMV5JQL5',{linker:{domains:['quietools.com','calc.quietools.com','image.quietools.com','dev.quietools.com','typing.quietools.com','invoice.quietools.com']}});}
   </script>
   <style>
     :root{
@@ -143,7 +143,7 @@
       <p class="status" id="status"></p>
     </div>
 
-    <div class="panel" id="resultsPanel" style="display:none">
+    <div class="panel" id="resultsPanel" data-tool="amortization" style="display:none">
       <h2>Schedule Summary</h2>
       <div class="stat-grid">
         <div class="stat"><div class="k">Monthly payment (P&amp;I)</div><div class="v" id="statPayment">$0</div></div>
@@ -218,6 +218,7 @@
   </footer>
 
   <script src="/assets/finance-math.js"></script>
+  <script src="/assets/analytics.js" defer></script>
   <script>
     "use strict";
     function $(id){ return document.getElementById(id); }
@@ -290,6 +291,7 @@
       if(!fullSchedule.length) return;
       const rows = fullSchedule.map(r => [r.n, FinanceMath.formatDate(r.date), r.payment.toFixed(2), r.principalPaid.toFixed(2), r.interestPaid.toFixed(2), r.balance.toFixed(2)]);
       FinanceMath.downloadCSV('amortization-schedule.csv', rows, ['Payment #', 'Date', 'Payment', 'Principal', 'Interest', 'Balance']);
+      if(typeof qtEvent==='function') qtEvent('download', { tool: 'amortization', format: 'csv' });
     }
 
     generateSchedule();
