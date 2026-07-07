@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){if(location.hostname.indexOf(".pages.dev")>-1){location.replace("https://calc.quietools.com"+location.pathname+location.search+location.hash);}})();</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mortgage Recast vs. Refinance — What's the Difference? | FinCalc</title>
+  <link rel="canonical" href="https://calc.quietools.com/guides/mortgage-recast-vs-refinance">
+  <meta name="description" content="Recasting and refinancing both lower your mortgage payment, but they work very differently. How each one changes your payment, term, and total interest, with a worked example.">
+  <meta name="keywords" content="mortgage recast vs refinance, what is a mortgage recast, recast mortgage calculator, lower mortgage payment lump sum, does recasting save interest">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1d6f5c">
+  <meta property="og:title" content="Mortgage Recast vs. Refinance — What's the Difference?">
+  <meta property="og:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:image:width" content="1376">
+  <meta property="og:image:height" content="768">
+  <meta name="twitter:image" content="https://calc.quietools.com/og-image.jpg">
+  <meta property="og:description" content="Recasting re-amortizes your existing loan after a lump sum; refinancing replaces it entirely. How each changes your payment and interest, with real numbers.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calc.quietools.com/guides/mortgage-recast-vs-refinance">
+  <meta name="twitter:card" content="summary">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QKMV5JQL5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    if(location.hostname.indexOf('.pages.dev')===-1){gtag('config','G-9QKMV5JQL5',{linker:{domains:['quietools.com','calc.quietools.com','image.quietools.com','dev.quietools.com','typing.quietools.com','invoice.quietools.com']}});}
+  </script>
+  <style>
+    :root{
+      --bg:#f5f8f7;--panel:#ffffff;--panel-2:#eef4f2;--border:#dee7e4;--border-strong:#c3d3ce;
+      --text:#122622;--muted:#5c6f6a;--accent:#1d6f5c;--accent-2:#2a8f76;--accent-soft:#e6f2ee;
+      --err:#c0392b;--ok:#1f9d55;--shadow:0 1px 3px rgba(18,38,34,.06),0 8px 24px rgba(18,38,34,.06);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1614;--panel:#151f1c;--panel-2:#1a2623;--border:#283733;--border-strong:#374a44;
+        --text:#e7f1ee;--muted:#9db3ac;--accent:#3fbf9d;--accent-2:#5fd6b3;--accent-soft:#1c2f2a;
+        --err:#ff6b5e;--ok:#4ade80;--shadow:0 1px 3px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{border-bottom:1px solid var(--border);padding:.85rem 1.25rem;position:sticky;top:0;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(10px);z-index:20;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .logo{font-size:1.2rem;font-weight:800;color:var(--text);text-decoration:none}
+    .logo span{color:var(--accent)}
+    main{max-width:760px;margin:0 auto;padding:1.5rem 1.25rem 0}
+    .crumb{font-size:.85rem;color:var(--muted);margin-bottom:1rem}
+    .crumb a{color:var(--muted)}
+    h1{font-size:1.85rem;margin-bottom:.5rem;letter-spacing:-.02em;line-height:1.25}
+    .meta{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+    .lead{color:var(--muted);margin-bottom:1.25rem;font-size:1.05rem}
+    .ad-slot{margin:1.5rem 0;min-height:90px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--border-strong);border-radius:12px;background:var(--panel-2)}
+    .cta-box{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:14px;padding:1.25rem 1.4rem;margin:1.5rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;box-shadow:var(--shadow)}
+    .cta-box p{font-weight:700;font-size:1rem}
+    .cta-box a{background:#fff;color:var(--accent);font-weight:700;padding:.6rem 1.1rem;border-radius:9px;white-space:nowrap}
+    .cta-box a:hover{text-decoration:none;opacity:.92}
+    article h2{font-size:1.35rem;margin:1.75rem 0 .6rem;letter-spacing:-.01em}
+    article h3{font-size:1.1rem;margin:1.25rem 0 .5rem}
+    article p{margin-bottom:1rem}
+    article ul,article ol{margin:0 0 1rem 1.25rem}
+    article li{margin-bottom:.4rem}
+    article strong{color:var(--text)}
+    .source-note{font-size:.82rem;color:var(--muted);border-left:3px solid var(--border-strong);padding-left:.75rem;margin:1rem 0}
+    .example-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;margin:1.25rem 0;box-shadow:var(--shadow)}
+    .example-box h3{margin-top:0;font-size:1rem;color:var(--accent)}
+    .example-box table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:.6rem}
+    .example-box th,.example-box td{border:1px solid var(--border);padding:.5rem .6rem;text-align:right}
+    .example-box th:first-child,.example-box td:first-child{text-align:left}
+    .example-box th{background:var(--panel-2);font-weight:700}
+    .savings-banner{margin-top:1rem;text-align:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border-radius:10px;padding:.9rem;font-size:.98rem;font-weight:700}
+    .faq-q{font-weight:700;color:var(--text);margin-top:1rem}
+    .related{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .related h2{font-size:1.15rem;margin-bottom:.75rem}
+    .related ul{margin-left:1.25rem}
+    .disclaimer-box{margin:2rem 0;background:var(--panel-2);border:1px solid var(--border-strong);border-radius:10px;padding:1rem 1.25rem;font-size:.85rem;color:var(--muted)}
+    .disclaimer-box strong{color:var(--text)}
+    footer{border-top:1px solid var(--border);padding:2rem 1.25rem;text-align:center;color:var(--muted);font-size:.85rem;margin-top:3rem}
+    footer .links{margin-top:.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  </style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2324533526355362" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">Fin<span>Calc</span></a>
+    <a href="/guides/index" style="font-weight:600;font-size:.92rem">All guides</a>
+  </header>
+  <main>
+    <p class="crumb"><a href="/">Home</a> › <a href="/guides/index">Guides</a> › Mortgage Recast vs. Refinance</p>
+    <h1>Mortgage Recast vs. Refinance: What's the Difference?</h1>
+    <p class="meta">Mortgage guide · Worked example</p>
+    <p class="lead">Both a recast and a refinance can lower your monthly mortgage payment, but they're fundamentally different transactions with different costs, requirements, and effects on your total interest. Here's a clear breakdown of how each one works and when to consider it.</p>
+
+    <div class="cta-box">
+      <p>See how a lower balance or rate changes your payment</p>
+      <a href="/mortgage-calculator">Try the mortgage calculator →</a>
+    </div>
+
+    <!-- AD-SLOT:Top | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <article>
+      <h2>What a mortgage recast is</h2>
+      <p>A <strong>recast</strong> (sometimes called re-amortization) keeps your existing loan exactly as it is — same interest rate, same remaining term, same lender — but recalculates your monthly payment after you make a large <strong>lump-sum payment toward principal</strong>. Your servicer applies the lump sum, then re-amortizes the now-smaller balance over your remaining term. The result is a lower required monthly payment. You keep your original rate, which is a major advantage if that rate is lower than what's currently available.</p>
+      <p>Recasting is usually inexpensive — many servicers charge a modest flat fee (often somewhere in the low hundreds of dollars; confirm your servicer's exact fee) — and typically requires no credit check, income re-verification, or new appraisal, because you aren't taking out a new loan. Not all loans are eligible: many government-backed loans (FHA, VA, USDA) generally cannot be recast, and servicers usually set a minimum lump-sum amount. Confirm eligibility and the minimum with your servicer before counting on it.</p>
+
+      <h2>What a refinance is</h2>
+      <p>A <strong>refinance</strong> replaces your existing mortgage with an entirely new loan — potentially at a different interest rate and a different term. People typically refinance to capture a lower interest rate, to change their term (for example, from a 30-year to a 15-year), or to switch loan types. Because it's a brand-new loan, a refinance generally involves a full application: credit check, income and asset verification, a new appraisal, and <strong>closing costs</strong> (commonly a few percent of the loan amount). It also usually resets your amortization clock — a fresh 30-year term restarts the interest-heavy early years unless you deliberately choose a shorter term.</p>
+
+      <div class="example-box">
+        <h3>Worked example: recast after a $50,000 lump sum</h3>
+        <p>Suppose you took a $300,000 mortgage at 6.5% for 30 years (payment ≈ $1,896.20/month). After 5 years of on-schedule payments your balance is about <strong>$280,833</strong>. You then apply a $50,000 lump sum. Here's what each choice does with that lump sum, computed with the same amortization math as this site's <a href="/mortgage-calculator">mortgage calculator</a>:</p>
+        <table>
+          <thead><tr><th></th><th>Recast (re-amortize $230,833 over remaining 25 yrs)</th><th>Keep same payment (no recast)</th></tr></thead>
+          <tbody>
+            <tr><td>New monthly payment</td><td>~$1,558.60</td><td>$1,896.20 (unchanged)</td></tr>
+            <tr><td>Remaining term</td><td>25 years</td><td>~16 years, 8 months</td></tr>
+            <tr><td>Interest left to pay</td><td>~$236,700</td><td>~$147,200</td></tr>
+          </tbody>
+        </table>
+        <div class="savings-banner">Recasting lowers the payment by ~$338/month; keeping the old payment saves far more interest and ends the loan ~8 years sooner.</div>
+        <p style="margin-top:.6rem;font-size:.85rem;color:var(--muted)">Figures rounded, same interest rate in both columns. This shows the core trade-off: recasting buys lower monthly cash flow, while applying the lump sum <em>without</em> recasting maximizes interest savings. Reproduce with the <a href="/amortization-schedule">amortization schedule</a>.</p>
+      </div>
+
+      <p>Note what this example is <em>not</em> comparing: it isn't a rate change. A recast never changes your rate — the interest difference above comes purely from the smaller balance and how the remaining term is set. A refinance, by contrast, is worth considering specifically when current rates are meaningfully <strong>lower</strong> than your existing rate, because that's the lever a recast cannot pull.</p>
+
+      <h2>Which one makes sense when</h2>
+      <ul>
+        <li><strong>You have a lump sum and your current rate is already good → recast.</strong> You lower your payment cheaply while keeping a rate you'd hate to lose. (If your goal is minimum interest rather than lower payments, consider applying the lump sum without recasting — see <a href="/guides/extra-payments-save-interest">how extra payments save interest</a>.)</li>
+        <li><strong>Current market rates are meaningfully lower than your rate → look at a refinance.</strong> Only a new loan can change your rate. Weigh the closing costs against the monthly savings to find your break-even point.</li>
+        <li><strong>You want to change your term or loan type → refinance.</strong> A recast can't shorten your term or switch you from, say, an adjustable to a fixed rate; a refinance can.</li>
+        <li><strong>You want to pull cash out of your equity → cash-out refinance.</strong> A recast only ever <em>reduces</em> your balance; it can't give you money back.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p class="faq-q">Does recasting a mortgage save on interest?</p>
+      <p>It saves some interest because your balance is smaller, but its main purpose is lowering the monthly payment, not minimizing total interest. If your priority is paying the least interest possible, applying the same lump sum <em>without</em> recasting — keeping your original higher payment so the loan ends sooner — usually saves more overall, as the worked example shows. Recasting trades some of that interest savings for improved monthly cash flow.</p>
+      <p class="faq-q">Is a recast cheaper than a refinance?</p>
+      <p>Almost always, yes. A recast typically involves a small flat servicer fee and no appraisal, credit check, or closing costs, because you're keeping the same loan. A refinance is a new loan with full underwriting and closing costs that commonly run a few percent of the loan amount. The trade-off is that a recast can't change your interest rate or term — a refinance can.</p>
+      <p class="faq-q">Can I recast any mortgage?</p>
+      <p>No. Eligibility depends on your loan type and servicer. Many government-backed loans (FHA, VA, USDA) generally can't be recast, and servicers usually require a minimum lump-sum amount and charge a fee. Always confirm eligibility, the minimum, and the fee with your specific servicer before planning around a recast.</p>
+      <p class="faq-q">Does refinancing restart my loan term?</p>
+      <p>It can. A refinance is a new loan, so choosing a fresh 30-year term restarts the amortization clock — meaning you're back in the interest-heavy early years (see <a href="/guides/why-early-mortgage-payments-are-mostly-interest">why early payments are mostly interest</a>). To avoid that, you can refinance into a shorter term that matches or beats your remaining years, though that typically raises the monthly payment.</p>
+    </article>
+
+    <!-- AD-SLOT:Mid | AdSense 승인 후 교체 -->
+    <div class="ad-slot">Advertisement</div>
+
+    <div class="cta-box">
+      <p>Model a lower balance or new rate on your loan</p>
+      <a href="/mortgage-calculator">Try the mortgage calculator →</a>
+    </div>
+
+    <div class="disclaimer-box">
+      <strong>Not financial advice.</strong> This guide explains the general mechanics of recasting and refinancing using a specific worked example. Fees, eligibility rules, minimum lump-sum amounts, current interest rates, and closing costs vary by lender, loan type, and market conditions. Confirm the specifics with your servicer or a mortgage professional, and consider consulting a financial advisor about which option fits your situation.
+    </div>
+
+    <div class="related">
+      <h2>Related guides</h2>
+      <ul>
+        <li><a href="/guides/extra-payments-save-interest">How extra payments save interest</a></li>
+        <li><a href="/guides/biweekly-vs-monthly-mortgage-payments">Biweekly vs. monthly mortgage payments</a></li>
+        <li><a href="/guides/15-year-vs-30-year-mortgage">15-year vs. 30-year mortgage</a></li>
+        <li><a href="/guides/why-early-mortgage-payments-are-mostly-interest">Why early mortgage payments are mostly interest</a></li>
+      </ul>
+    </div>
+  </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mortgage Recast vs. Refinance: What's the Difference?",
+    "description": "Recasting and refinancing both lower your mortgage payment, but they work very differently. How each one changes your payment, term, and total interest, with a worked example.",
+    "inLanguage": "en-US",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/about.html" },
+    "publisher": { "@type": "Organization", "name": "FinCalc", "url": "https://calc.quietools.com/" },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://calc.quietools.com/guides/mortgage-recast-vs-refinance.html" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does recasting a mortgage save on interest?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It saves some interest because your balance is smaller, but its main purpose is lowering the monthly payment, not minimizing total interest. If your priority is paying the least interest possible, applying the same lump sum without recasting — keeping your original higher payment so the loan ends sooner — usually saves more overall. Recasting trades some of that interest savings for improved monthly cash flow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is a recast cheaper than a refinance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Almost always, yes. A recast typically involves a small flat servicer fee and no appraisal, credit check, or closing costs, because you're keeping the same loan. A refinance is a new loan with full underwriting and closing costs that commonly run a few percent of the loan amount. The trade-off is that a recast can't change your interest rate or term — a refinance can."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I recast any mortgage?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Eligibility depends on your loan type and servicer. Many government-backed loans (FHA, VA, USDA) generally can't be recast, and servicers usually require a minimum lump-sum amount and charge a fee. Always confirm eligibility, the minimum, and the fee with your specific servicer before planning around a recast."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does refinancing restart my loan term?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It can. A refinance is a new loan, so choosing a fresh 30-year term restarts the amortization clock — meaning you're back in the interest-heavy early years. To avoid that, you can refinance into a shorter term that matches or beats your remaining years, though that typically raises the monthly payment."
+        }
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calc.quietools.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://calc.quietools.com/guides/index.html"},
+      {"@type": "ListItem", "position": 3, "name": "Mortgage Recast vs. Refinance", "item": "https://calc.quietools.com/guides/mortgage-recast-vs-refinance.html"}
+    ]
+  }
+  </script>
+
+  <footer>
+    <p>FinCalc — free, private financial calculators. Everything runs locally; your numbers are never sent to a server.</p>
+    <div class="links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div>
+  </footer>
+</body>
+</html>
