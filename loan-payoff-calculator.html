@@ -170,6 +170,12 @@
       <h2>How extra payments save you money</h2>
       <p>Every extra dollar you pay toward a loan goes straight to reducing your principal balance — it isn't split between principal and interest like your regular payment is. A smaller principal balance means less interest accrues the following month, which means more of your <em>next</em> regular payment also goes to principal. This compounding effect is why even modest extra payments (an extra $50-100/month) can shave years off a loan and save meaningful interest, especially early in the loan term when the balance — and therefore the interest accruing on it — is at its highest.</p>
 
+      <h2>How the payoff is calculated</h2>
+      <p>Your regular payment is derived from the standard fixed-rate amortization formula used across the lending industry:</p>
+      <p><code>M = P × [ r(1+r)<sup>n</sup> ] / [ (1+r)<sup>n</sup> − 1 ]</code></p>
+      <p>Where <strong>P</strong> is the loan principal, <strong>r</strong> is the periodic (monthly) interest rate — the annual rate divided by 12 — and <strong>n</strong> is the total number of monthly payments. To build the payoff schedule, the calculator then applies that payment month by month: each month it charges interest on the current balance (<code>balance × r</code>), subtracts that interest plus any extra payment from the balance, and repeats until the balance reaches zero. Any extra amount you enter is applied entirely to principal, which is why it shortens the term and reduces total interest. This is the same period-by-period method used in a full <a href="/amortization-schedule">amortization schedule</a>, and the mechanics are walked through in <a href="/guides/how-mortgage-amortization-works">how mortgage amortization works</a>.</p>
+      <p class="source-note" style="font-size:.85rem;color:var(--muted);border-left:3px solid var(--border-strong);padding-left:.75rem">Methodology reference: the amortization formula above is the standard closed-form solution for a fixed-rate installment loan. For a plain-language explanation of amortization from a regulator, see the U.S. Consumer Financial Protection Bureau's definition of an <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-amortization-en-100/" rel="noopener" target="_blank">amortized loan</a> (consumerfinance.gov). All calculations run locally in your browser; no figures are sent to a server.</p>
+
       <h2>Which loans is this calculator for?</h2>
       <p>This is a general-purpose amortizing loan calculator, so it works for:</p>
       <ul>
